@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JTextField" name="field_search">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelHeader1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search by no rekam medis"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;//labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader1.setBounds(114, 68, 213, 59);&#xa;labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSearch">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="search"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAll">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="see all"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelHeader">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Daftar Riwayat Pendaftaran"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader.setBounds(114, 68, 213, 59);&#xa;labelHeader.setHorizontalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnaddTindakan">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tambah Tindakan"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnaddTindakanActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="0" rowCount="0"/>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kembali"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelHeader2" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="submit" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="namaDok" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="noPrak" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="noHP" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="spesialis" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="field_noPrak" pref="136" max="32767" attributes="0"/>
+                                      <Component id="field_namaDok" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="gajiDok" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="idPoli" min="-2" pref="166" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="field_spesialis" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="choicePoliklinik" pref="137" max="32767" attributes="0"/>
+                                      <Component id="field_gajiDok" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="field_noHP" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelHeader2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="namaDok" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_namaDok" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="noPrak" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_noPrak" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="noHP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_noHP" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="spesialis" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_spesialis" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="field_gajiDok" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="choicePoliklinik" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="gajiDok" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="idPoli" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="submit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="labelHeader2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update Dokter"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader2.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader2.setForeground(new Color(119,136,153));&#xa;labelHeader2.setBounds(114, 68, 213, 59);&#xa;labelHeader2.setHorizontalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="namaDok">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama Dokter"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="noPrak">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No Izin Praktek"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gajiDok">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gaji"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kembali"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBack1ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="submit">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="submit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_gajiDok">
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_noPrak">
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_namaDok">
+    </Component>
+    <Component class="javax.swing.JLabel" name="spesialis">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Spesialisasi"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_spesialis">
+    </Component>
+    <Component class="javax.swing.JLabel" name="noHP">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Phone Number"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_noHP">
+    </Component>
+    <Component class="javax.swing.JLabel" name="idPoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Poliklinik"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="java.awt.Choice" name="choicePoliklinik">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[15];&#xa;polList = poliklinik.getPoliklinik();&#xa;for (int j = 0; j &lt; 10; j++) {&#xa;    if (polList[j] != null){&#xa;        choicePoliklinik.addItem(polList[j]);&#xa;    }&#xa;}"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>
