@@ -6,7 +6,7 @@
 package pendaftaran;
 
 import AdministrasiRS.DBConnection;
-import AdministrasiRS.viewPendaftaran;
+import AdministrasiRS.Query;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -46,8 +46,6 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
         labelHeader = new javax.swing.JLabel();
         labelTahun = new javax.swing.JLabel();
         field_noRegis = new javax.swing.JTextField();
-        labelTahun1 = new javax.swing.JLabel();
-        choiceIdDokter = new java.awt.Choice();
         choiceIdTindakan = new java.awt.Choice();
         labelTahun2 = new javax.swing.JLabel();
         labelTahun3 = new javax.swing.JLabel();
@@ -69,20 +67,8 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
         labelTahun.setForeground(new Color(119,136,153));
         labelTahun.setBounds(114, 68, 213, 59);
 
-        labelTahun1.setText("ID Dokter");
-        labelTahun.setForeground(new Color(119,136,153));
-        labelTahun.setBounds(114, 68, 213, 59);
-
-        String[] polListDok = new String[100];
-        polListDok = insertTindakanKePasien.getDokter();
-        for (int j = 0; j < 100; j++) {
-            if (polListDok[j] != null){
-                choiceIdDokter.addItem(polListDok[j]);
-            }
-        }
-
         String[] polList = new String[100];
-        polList = insertTindakanKePasien.getTindakan();
+        polList = Query.getTindakanID();
         for (int j = 0; j < 100; j++) {
             if (polList[j] != null){
                 choiceIdTindakan.addItem(polList[j]);
@@ -146,21 +132,17 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(field_noRegis))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(labelTahun3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(Jumlah))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelTahun1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelTahun2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(labelTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(labelTahun2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(choiceIdTindakan, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(choiceIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(field_noRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(19, 19, 19))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -180,15 +162,11 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelHeader)
-                .addGap(49, 49, 49)
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTahun)
                     .addComponent(field_noRegis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTahun1)
-                    .addComponent(choiceIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelTahun2)
                     .addComponent(choiceIdTindakan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,7 +180,7 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
                     .addComponent(label_tarif))
                 .addGap(18, 18, 18)
                 .addComponent(submit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );
@@ -215,20 +193,19 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_JumlahActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPendaftaran start = new viewPendaftaran();
+        viewPendaftaranForAdmin  start = new viewPendaftaranForAdmin ();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         String idTindakan = choiceIdTindakan.getSelectedItem();
-        String tarif = insertTindakanKePasien.getTarifTindakan(idTindakan);
+        String tarif = Query.getTarifTindakan(idTindakan);
         String jml = Jumlah.getText();
-        String idDokter = choiceIdDokter.getSelectedItem();
         String noRegis = field_noRegis.getText();
 
         label_tarif.setText("Rp " + tarif);
-        insertTindakanKePasien.addTindakan(idTindakan, idDokter, noRegis, jml, tarif);
+        Query.addTindakanToPasien(idTindakan, noRegis, jml, tarif);
         
         this.clear();
     }//GEN-LAST:event_submitActionPerformed
@@ -282,12 +259,10 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Jumlah;
     private javax.swing.JButton btnBack;
-    private java.awt.Choice choiceIdDokter;
     private java.awt.Choice choiceIdTindakan;
     private javax.swing.JTextField field_noRegis;
     private javax.swing.JLabel labelHeader;
     private javax.swing.JLabel labelTahun;
-    private javax.swing.JLabel labelTahun1;
     private javax.swing.JLabel labelTahun2;
     private javax.swing.JLabel labelTahun3;
     private javax.swing.JLabel labelTahun4;
@@ -299,109 +274,5 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
 class insertTindakanKePasien {
      static Connection con = DBConnection.getConnection();
      
-     static String[] getTindakan(){
-           
-      PreparedStatement pst = null;
-      String[] arrTindakan = new String[100];
-      String sql = "select * from TINDAKAN";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrTindakan[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            //Logger.getLogger(dokter.poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrTindakan;
-    }
      
-     static String getTarifTindakan(String idTindakan){
-           
-      PreparedStatement pst = null;
-      String[] arrTindakan = new String[100];
-      String sql = "select tarif from TINDAKAN WHERE ID_TINDAKAN = '" + idTindakan + "'";
-      ResultSet st;
-      //System.out.println(sql);
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-        //        System.out.println(st.getString(1) + "ss");
-                arrTindakan[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            //Logger.getLogger(dokter.poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrTindakan[0];
-    }
-     
-     static String[] getDokter(){
-           
-      PreparedStatement pst = null;
-      String[] arrDokter = new String[100];
-      String sql = "select * from DOKTER";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrDokter[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            //Logger.getLogger(dokter.poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrDokter;
-    }
-     
-     public  static String addTindakan(String idT, String idD, String noR, String jml, String aTarif){
-         String idTindakan = idT;
-         String idDokter = idD;
-         String noRegis = noR;
-         String jumlah = jml;
-         String tarif = aTarif;
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         String hasil = "Record Save Success::";
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call TINDAKAN_HISTORY_INSERT(?,?,?,?,?)}");
-			stmt.setString(1, idD);
-                        stmt.setString(2, noR);
-                        stmt.setString(3, idT);
-                        stmt.setString(4, jml);
-                        stmt.setString(5, getTarifTindakan(idT));
-                        
-                        stmt.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Data Tindakan berhasil ditambahkan !");
-		}catch(Exception e){
-			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Data Tindakan gagal ditambahkan !");
-		}finally{
-			try {
-				stmt.close();
-				//con.close();
-				input.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-         
-         return hasil;
-     }
 }

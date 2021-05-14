@@ -27,7 +27,7 @@ public class updateDokter extends javax.swing.JFrame {
      * Creates new form updateDokter
      */
     public updateDokter(String idDok) {
-        dokter = updateDokter2.getSearch(idDok);
+        dokter = Query.getSearchDokter(idDok);
         initComponents();
         field_namaDok.setText((dokter[0][1]).toString());
         field_noPrak.setText((dokter[0][2]).toString());
@@ -184,7 +184,7 @@ public class updateDokter extends javax.swing.JFrame {
         namaDok.setBounds(114, 68, 213, 59);
 
         String[] polList = new String[15];
-        polList = poliklinik.getPoliklinik();
+        polList = Query.getPoliklinik();
         for (int j = 0; j < 10; j++) {
             if (polList[j] != null){
                 choicePoliklinik.addItem(polList[j]);
@@ -306,7 +306,7 @@ public class updateDokter extends javax.swing.JFrame {
         String idPoli = choicePoliklinik.getSelectedItem();
         String idDok = (dokter[0][0]).toString();
 
-        updateDokter2.updDokter(idDok, namaDok, noPrak, noHP, spesialis, gajiDok, idPoli);
+        Query.updDokter(idDok, namaDok, noPrak, noHP, spesialis, gajiDok, idPoli);
         dokterID page = new dokterID();
         page.run();
         this.setVisible(false);
@@ -392,85 +392,4 @@ public class updateDokter extends javax.swing.JFrame {
     private javax.swing.JLabel spesialis;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class updateDokter2 {
-     static Connection con = DBConnection.getConnection();
-     
-     static void updDokter(String idDok, String namaDok, String noPrak, String noHP, String spesialis, String tGajiDok, String idPoli){
-         int gajiDok = Integer.parseInt(tGajiDok);
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call DOKTER_UPDATE(?,?,?,?,?," + gajiDok+ ",?)}");
-			stmt.setString(1, idDok);
-			stmt.setString(2, namaDok);
-                        stmt.setString(3, noPrak);
-                        stmt.setString(4, noHP);
-                        stmt.setString(5, spesialis);
-                        stmt.setString(6, idPoli);
-			
-			stmt.executeUpdate();
-			
-                        JOptionPane.showMessageDialog(null, "Update Dokter Berhasil Dilakukan");
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Update Dokter Gagal Dilakukan");
-		}finally{
-			try {
-				stmt.close();
-				//con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-     }
-
-
-
-   
-
-    static Object[][] getSearch(String noRM){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from DOKTER WHERE id_dokter = '" + noRM + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[1][7];
-        
-        try {
-            pst = con.prepareStatement(sql);
-//            st=pst.executeQuery();
-//            while(st.next()){
-//                size++;
-//            }
-//            result =  new Object[size][7];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<8 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(daftarDokter.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
-
-
 }

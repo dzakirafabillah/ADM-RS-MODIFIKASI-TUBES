@@ -1,20 +1,22 @@
-package AdministrasiRS;
+package dokter;
 
 /**
  *
  * @author DZAKIRA
  */
 
-import pasien.*;
+
+import AdministrasiRS.*;
+import dokter.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class viewPasien extends javax.swing.JFrame {
+public class viewDokter extends javax.swing.JFrame {
 
     /**
-     * Creates new form viewPasien
+     * Creates new form viewDokter
      */
-    public viewPasien() {
+    public viewDokter() {
         initComponents();
     }
 
@@ -27,49 +29,27 @@ public class viewPasien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnAddPasien = new javax.swing.JButton();
         labelHeader = new javax.swing.JLabel();
-        btnListPasien = new javax.swing.JButton();
+        btnListDokter = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        btnAddDokter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrasi RS DPR");
 
-        btnAddPasien.setText("Tambah Pasien");
-        btnAddPasien.setBackground(new Color(119,136,153));
-        btnAddPasien.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        btnAddPasien.setForeground(SystemColor.menu);
-        btnAddPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddPasienActionPerformed(evt);
-            }
-        });
-
-        labelHeader.setText("Kelola Data Pasien");
+        labelHeader.setText("Kelola Data Dokter");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
         labelHeader.setHorizontalAlignment(SwingConstants.CENTER);
 
-        btnListPasien.setText("List Pasien");
-        btnListPasien.setBackground(new Color(119,136,153));
-        btnListPasien.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        btnListPasien.setForeground(SystemColor.menu);
-        btnListPasien.addActionListener(new java.awt.event.ActionListener() {
+        btnListDokter.setText("List Dokter");
+        btnListDokter.setBackground(new Color(119,136,153));
+        btnListDokter.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        btnListDokter.setForeground(SystemColor.menu);
+        btnListDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListPasienActionPerformed(evt);
+                btnListDokterActionPerformed(evt);
             }
         });
 
@@ -82,6 +62,16 @@ public class viewPasien extends javax.swing.JFrame {
             }
         });
 
+        btnAddDokter.setText("Tambah Dokter");
+        btnAddDokter.setBackground(new Color(119,136,153));
+        btnAddDokter.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        btnAddDokter.setForeground(SystemColor.menu);
+        btnAddDokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDokterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,9 +81,9 @@ public class viewPasien extends javax.swing.JFrame {
                     .addComponent(labelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(btnAddPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnListPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnListDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(btnBack)))
@@ -106,8 +96,8 @@ public class viewPasien extends javax.swing.JFrame {
                 .addComponent(labelHeader)
                 .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(29, 29, 29))
@@ -116,24 +106,27 @@ public class viewPasien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPasienActionPerformed
-        inputPasien start = new inputPasien();
+    private void btnListDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListDokterActionPerformed
+        listDokterr start = new listDokterr();
         start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnAddPasienActionPerformed
-
-    private void btnListPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListPasienActionPerformed
-        ListPasien start = new ListPasien();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnListPasienActionPerformed
+        this.setVisible(false);                    
+    }//GEN-LAST:event_btnListDokterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MainMenu start = new MainMenu();
+        MainMenuAdmin start = new MainMenuAdmin();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAddDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDokterActionPerformed
+        inputDokter start = new inputDokter("");
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAddDokterActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -148,36 +141,35 @@ public class viewPasien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewPasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewDokter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewPasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewDokter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewPasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewDokter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(viewPasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewDokter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new viewPasien().setVisible(true);
+            new viewDokter().setVisible(true);
         });
         
         
     }
     
     public void run() {
-                viewPasien calcu = new viewPasien();
+                viewDokter calcu = new viewDokter();
                 calcu.getContentPane().setBackground(new Color(204,229,255));
                 calcu.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddPasien;
+    private javax.swing.JButton btnAddDokter;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnListPasien;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnListDokter;
     private javax.swing.JLabel labelHeader;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,8 +9,8 @@ public class DBConnection {
 
 	private static final String DB_DRIVER_CLASS = "oracle.jdbc.OracleDriver";
 	private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	private static final String DB_USERNAME = "system";
-	private static final String DB_PASSWORD = "Kentanggoreng27";
+	private static final String DB_USERNAME = "HR";
+	private static final String DB_PASSWORD = "kurogane";
 	
 	public static Connection getConnection() {
 		Connection con = null;

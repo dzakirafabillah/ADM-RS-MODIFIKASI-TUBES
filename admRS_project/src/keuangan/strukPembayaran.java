@@ -126,11 +126,11 @@ public class strukPembayaran extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         String idPembayaran = field_idP.getText();
-        if(tarif.search(idPembayaran)){
+        if(Query.searchPembayaran(idPembayaran)){
             JOptionPane.showMessageDialog(null, "Pembayaran dengan ID " + field_idP.getText() + " tidak ditemukan");
         }else{
-            strukResult start = new strukResult (idPembayaran, tarif.getTarif(idPembayaran));
-            start.run(idPembayaran,tarif.getTarif(idPembayaran));
+            strukResult start = new strukResult (idPembayaran, Query.getTarif(idPembayaran));
+            start.run(idPembayaran, Query.getTarif(idPembayaran));
             this.setVisible(false);
         }
         
@@ -192,73 +192,4 @@ public class strukPembayaran extends javax.swing.JFrame {
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class tarif { 
-    static Connection con = DBConnection.getConnection();
-
-    static String getTarif(String noRegis){
-        Scanner input = new Scanner(System.in);
-        CallableStatement stmt = null;
-        String result = "";
-        try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call TOTAL_TARIF(?,?)}");
-			stmt.setString(1, noRegis);
-      
-			//register the OUT parameter before calling the stored procedure
-			stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
-			
-			stmt.executeUpdate();
-			result = stmt.getString(2);
-			//read the OUT parameter now
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-		}finally{
-			try {
-                                stmt.close();
-//				con.close();
-				input.close();
-			} catch (SQLException e){
-//				e.printStackTrace();
-			}
-                        return result;                        
-		}        
-    }
-    
-    static boolean search(String idP){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from PEMBAYARAN WHERE id_pembayaran = '" + idP + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[1][4];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][4];
-            
-//            st=pst.executeQuery();
-//            int i=0;
-//            while(st.next()){
-//                for (int k =1; k<5 ;k++){
-//                    result[i][k-1] = st.getString(k);
-//                }
-//                i++;
-//            }
-            
-            pst.close();
-            System.out.println(size == 0);
-            
-        } catch (SQLException ex){
-            Logger.getLogger(tarif.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        return (result.length == 0);
-    }
 }

@@ -75,7 +75,7 @@ public class strukResult extends javax.swing.JFrame {
             }
         });
 
-        Object[][] tempp = struck.getListTindakan(noRegis);
+        Object[][] tempp = Query.getListTindakan(noRegis);
         //Object[][] tempp = new Object[8][8];
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -182,72 +182,4 @@ public class strukResult extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelHeader;
     // End of variables declaration//GEN-END:variables
-}
-
-
-class struck { 
-    static Connection con = DBConnection.getConnection();
-
-    static Object[][] getListTindakan(String idP){
-      
-      PreparedStatement pst = null;
-      PreparedStatement pst2 = null;
-      PreparedStatement pst3 = null;
-      
-      
-      String sql2 = "select rp_no_registrasi FROM PEMBAYARAN WHERE id_pembayaran = '" + idP +"'" ;
-      System.out.println(sql2);
-      ResultSet st, st2, st3;
-      int size = 0;
-      Object[][] result =  new Object[0][0];
-      Object[][] result2 =  new Object[1][1];
-        
-        try {
-            
-            pst2 = con.prepareStatement(sql2);
-            
-            st2=pst2.executeQuery();
-            int i=0;
-            while(st2.next()){
-                    result2[i][0] = st2.getString(1);  
-            }
-            
-            String sql = "select id_tindakan,tarif,jumlah,total from TINDAKAN_HISTORY WHERE no_registrasi = '" + result2[0][0] +"'" ;
-            pst = con.prepareStatement(sql);
-            
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][4];
-            
-            st=pst.executeQuery();
-            i=0;
-            while(st.next()){
-                for (int k =1; k<5 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                String sqlNamaTindakan = "select * from TINDAKAN WHERE id_tindakan = '" + st.getString(1) +"'" ;
-                pst3 = con.prepareStatement(sqlNamaTindakan);
-
-                st3=pst3.executeQuery();
-                
-                int j = 0;
-                while(st3.next()){
-                    result[i][0] = st3.getString(2);
-                }
-                
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(struck.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
-    
 }

@@ -58,7 +58,7 @@ public class listRawatInap extends javax.swing.JFrame {
         labelHeader2.setBounds(114, 68, 213, 59);
         labelHeader2.setHorizontalAlignment(SwingConstants.CENTER);
 
-        Object[][] tempp = daftarRawatInap.getListRawatInap();
+        Object[][] tempp = Query.getListRawatInap();
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
@@ -105,7 +105,7 @@ public class listRawatInap extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-                viewPendaftaran start = new viewPendaftaran();
+                viewPendaftaranForAdmin  start = new viewPendaftaranForAdmin ();
                 start.run();
                 this.setVisible(false);
     }//GEN-LAST:event_btnBack1ActionPerformed
@@ -156,48 +156,4 @@ public class listRawatInap extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel labelHeader2;
     // End of variables declaration//GEN-END:variables
-}
-
-class daftarRawatInap {
-    static Connection con = DBConnection.getConnection();
-
-    static Object[][] getListRawatInap(){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from KUNJUNGAN_PS_INAP";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[30][5];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][5];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<6 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(daftarRawatInap.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
-
-    static Object[][] getListRawatJalan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

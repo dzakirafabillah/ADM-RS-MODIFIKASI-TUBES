@@ -117,7 +117,7 @@ public class delDokterr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        deleteDokter.delDokter(field_idDok.getText());
+        Query.delDokter(field_idDok.getText());
     }//GEN-LAST:event_submitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -175,43 +175,4 @@ public class delDokterr extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader4;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class deleteDokter {
-    static Connection con = DBConnection.getConnection();
-    
-    static void delDokter(String tIdDok){
-        String idDok = tIdDok;
-        
-        CallableStatement stmt = null;
-        Scanner input = new Scanner(System.in);
-         
-        try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call DOKTER_DELETE(?)}");
-			
-			stmt.setString(1, idDok);
-			
-			System.out.println(idDok);
-                        
-			
-			stmt.executeUpdate();
-			
-			
-                        JOptionPane.showMessageDialog(null, "Delete Dokter Berhasil Dilakukan");
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Delete Dokter Gagal Dilakukan\nPoliklinik harus memiliki minimal 1 dokter");
-		}finally{
-			try {
-				stmt.close();
-				con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-     }
 }

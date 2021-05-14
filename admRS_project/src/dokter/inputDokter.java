@@ -34,7 +34,7 @@ public class inputDokter extends javax.swing.JFrame {
         System.out.println("MASUK");
         if (namaPol == ""){
             String[] polList = new String[100];
-            polList = poliklinik.getPoliklinik();
+            polList = Query.getPoliklinik();
             for (int j = 0; j < 100; j++) {
                 if (polList[j] != null){
                     choicePoliklinik.addItem(polList[j]);
@@ -199,9 +199,9 @@ public class inputDokter extends javax.swing.JFrame {
                 || spes.equals("") || gaji.equals("") )){
                 JOptionPane.showMessageDialog(null, "Masukan minimal satu dokter !");
             }else{
-                tambah.addPoliklinik(namaPol);
-                String idNewPol = poliklinik.getIdPoliklinik(namaPol);
-                String hasil = tambah.addDokter(nm,no,phone,spes,gaji,idNewPol);
+                Query.addPoliklinik(namaPol);
+                String idNewPol = Query.getIdPoliklinik(namaPol);
+                String hasil = Query.addDokter(nm,no,phone,spes,gaji,idNewPol);
                 if (hasil != "Record Save Success::"){
                     this.clear();
                 }else{
@@ -209,7 +209,7 @@ public class inputDokter extends javax.swing.JFrame {
                 }
             }
         }else{
-            tambah.addDokter(nm,no,phone,spes,gaji,id);
+            Query.addDokter(nm,no,phone,spes,gaji,id);
             this.clear();
         }
     }//GEN-LAST:event_SubmitActionPerformed
@@ -301,55 +301,4 @@ public class inputDokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
-}
-
-class poliklinik { 
-    static Connection con = DBConnection.getConnection();
-
-    static String[] getPoliklinik(){
-           
-      PreparedStatement pst = null;
-      String[] arrPoliklinik = new String[100];
-      String sql = "select * from POLIKLINIK";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrPoliklinik[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrPoliklinik;
-    }
-    
-    static String getIdPoliklinik(String namaPol){
-           
-      PreparedStatement pst = null;
-      String[] arrPoliklinik = new String[100];
-      String sql = "select * from POLIKLINIK WHERE nama_poliklinik = '" + namaPol + "'" ;
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrPoliklinik[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrPoliklinik[0];
-    }
-    
-    
-    
 }

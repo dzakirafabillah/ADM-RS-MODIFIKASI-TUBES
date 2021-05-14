@@ -26,25 +26,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelHeader" alignment="0" min="-2" pref="461" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnDaftar" min="-2" pref="213" max="-2" attributes="0"/>
-                          <Component id="btnListRInap1" min="-2" pref="213" max="-2" attributes="0"/>
-                          <Component id="btnListRInapSkrg1" alignment="1" min="-2" pref="213" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnListRInap1" pref="213" max="32767" attributes="0"/>
+                          <Component id="btnListPendaftaran" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnListRJalan" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnAddTindakanRS" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnListPendaftaran" pref="193" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnListRInapSkrg1" max="32767" attributes="0"/>
+                          <Component id="btnListRJalan" pref="193" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="labelHeader" alignment="0" min="-2" pref="461" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
@@ -55,22 +53,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
               <Component id="labelHeader" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnDaftar" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="btnListPendaftaran" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                  <Component id="btnListRInapSkrg1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnListRJalan" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="btnListRInap1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAddTindakanRS" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="btnListRInapSkrg1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <EmptySpace pref="196" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
@@ -84,17 +77,6 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader.setBounds(114, 68, 213, 59);&#xa;labelHeader.setHorizontalAlignment(SwingConstants.CENTER);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnDaftar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Daftar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDaftarActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnDaftar.setBackground(new Color(119,136,153));&#xa;btnDaftar.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;btnDaftar.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnListPendaftaran">
@@ -128,17 +110,6 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnListRJalan.setBackground(new Color(119,136,153));&#xa;btnListRJalan.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;btnListRJalan.setForeground(SystemColor.menu);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAddTindakanRS">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tambah Tindakan"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddTindakanRSActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnAddTindakanRS.setBackground(new Color(119,136,153));&#xa;btnAddTindakanRS.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;btnAddTindakanRS.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnListRInap1">

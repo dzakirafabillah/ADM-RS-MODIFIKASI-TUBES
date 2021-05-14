@@ -1,10 +1,11 @@
-package AdministrasiRS;
+package poliklinik;
 
 /**
  *
  * @author DZAKIRA
  */
 
+import AdministrasiRS.*;
 import poliklinik.*;
 import java.awt.*;
 import javax.swing.*;
@@ -135,7 +136,7 @@ public class viewPoliklinik extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListPoliActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MainMenu start = new MainMenu();
+        MainMenuAdmin start = new MainMenuAdmin();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

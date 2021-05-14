@@ -1,20 +1,21 @@
-package AdministrasiRS;
+package pendaftaran;
 
 /**
  *
  * @author DZAKIRA
  */
+import AdministrasiRS.*;
 import pendaftaran.*;
 import java.awt.*;
 import javax.swing.*;
 
 
-public class viewPendaftaran extends javax.swing.JFrame {
+public class viewPendaftaranForAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form viewPendaftaran
      */
-    public viewPendaftaran() {
+    public viewPendaftaranForAdmin() {
         initComponents();
     }
 
@@ -28,11 +29,9 @@ public class viewPendaftaran extends javax.swing.JFrame {
     private void initComponents() {
 
         labelHeader = new javax.swing.JLabel();
-        btnDaftar = new javax.swing.JButton();
         btnListPendaftaran = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnListRJalan = new javax.swing.JButton();
-        btnAddTindakanRS = new javax.swing.JButton();
         btnListRInap1 = new javax.swing.JButton();
         btnListRInapSkrg1 = new javax.swing.JButton();
 
@@ -44,16 +43,6 @@ public class viewPendaftaran extends javax.swing.JFrame {
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
         labelHeader.setHorizontalAlignment(SwingConstants.CENTER);
-
-        btnDaftar.setText("Daftar");
-        btnDaftar.setBackground(new Color(119,136,153));
-        btnDaftar.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        btnDaftar.setForeground(SystemColor.menu);
-        btnDaftar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDaftarActionPerformed(evt);
-            }
-        });
 
         btnListPendaftaran.setText("List R. Pendaftaran");
         btnListPendaftaran.setBackground(new Color(119,136,153));
@@ -84,16 +73,6 @@ public class viewPendaftaran extends javax.swing.JFrame {
             }
         });
 
-        btnAddTindakanRS.setText("Tambah Tindakan");
-        btnAddTindakanRS.setBackground(new Color(119,136,153));
-        btnAddTindakanRS.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        btnAddTindakanRS.setForeground(SystemColor.menu);
-        btnAddTindakanRS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddTindakanRSActionPerformed(evt);
-            }
-        });
-
         btnListRInap1.setText("List R. Inap");
         btnListRInap1.setBackground(new Color(119,136,153));
         btnListRInap1.setFont(new Font("Century Gothic", Font.BOLD, 18));
@@ -120,21 +99,19 @@ public class viewPendaftaran extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnListRInap1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnListRInapSkrg1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnListRInap1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(btnListPendaftaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnListRJalan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddTindakanRS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnListPendaftaran, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnListRInapSkrg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnListRJalan, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                    .addComponent(labelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,19 +119,15 @@ public class viewPendaftaran extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(labelHeader)
-                .addGap(140, 140, 140)
+                .addGap(148, 148, 148)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(btnListPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListRInapSkrg1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListRJalan, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListRInap1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddTindakanRS, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListRInapSkrg1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(29, 29, 29))
         );
@@ -162,21 +135,14 @@ public class viewPendaftaran extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
-        // TODO add your handling code here:
-        inputPendaftaran start = new  inputPendaftaran ();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnDaftarActionPerformed
-
     private void btnListPendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListPendaftaranActionPerformed
-        listPendaftaran start = new listPendaftaran ();
+        listPendaftaranForAdmin start = new listPendaftaranForAdmin  ();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnListPendaftaranActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MainMenu start = new MainMenu();
+        MainMenuAdmin start = new MainMenuAdmin();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -186,12 +152,6 @@ public class viewPendaftaran extends javax.swing.JFrame {
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnListRJalanActionPerformed
-
-    private void btnAddTindakanRSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTindakanRSActionPerformed
-        tambahTindakan start = new tambahTindakan();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnAddTindakanRSActionPerformed
 
     private void btnListRInap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListRInap1ActionPerformed
         listRawatInap start = new listRawatInap();
@@ -219,35 +179,33 @@ public class viewPendaftaran extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewPendaftaran.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewPendaftaranForAdmin .class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewPendaftaran.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewPendaftaranForAdmin .class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewPendaftaran.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewPendaftaranForAdmin .class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(viewPendaftaran.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(viewPendaftaranForAdmin .class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new viewPendaftaran().setVisible(true);
+            new viewPendaftaranForAdmin ().setVisible(true);
         });
         
         
     }
     
     public void run() {
-                viewPendaftaran calcu = new viewPendaftaran();
+                viewPendaftaranForAdmin  calcu = new viewPendaftaranForAdmin ();
                 calcu.getContentPane().setBackground(new Color(204,229,255));
                 calcu.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddTindakanRS;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDaftar;
     private javax.swing.JButton btnListPendaftaran;
     private javax.swing.JButton btnListRInap1;
     private javax.swing.JButton btnListRInapSkrg1;

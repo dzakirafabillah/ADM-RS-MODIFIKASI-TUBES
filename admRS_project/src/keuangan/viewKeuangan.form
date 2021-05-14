@@ -70,7 +70,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="labelHeader">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kelola Data Dokter"/>
+        <Property name="text" type="java.lang.String" value="Kelola Data Keuangan"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader.setBounds(114, 68, 213, 59);&#xa;labelHeader.setHorizontalAlignment(SwingConstants.CENTER);"/>

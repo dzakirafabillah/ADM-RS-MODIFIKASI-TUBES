@@ -113,7 +113,7 @@ public class jmlPendaftaran extends javax.swing.JFrame {
         labelTahun.setText("Poliklinik");
 
         String[] polList = new String[100];
-        polList = poliklinik.getPoliklinik();
+        polList = Query.getPoliklinik();
         for (int j = 0; j < 100 ; j++) {
             if (polList[j] != null){
                 choicePoliklinik.addItem(polList[j]);
@@ -191,7 +191,7 @@ public class jmlPendaftaran extends javax.swing.JFrame {
         String aTahun = choiceTahun.getSelectedItem();
                 this.setVisible(false);
 //        System.out.println(poliklinik.textProcedure(aNama, aBulan, aTahun));
-        String jml = poliklinik.textProcedure(aNama, aBulan, aTahun);
+        String jml = Query.textProcedure(aNama, aBulan, aTahun);
         start.run(jml, aNama, aBulan, aTahun);
 
     }//GEN-LAST:event_submitActionPerformed
@@ -254,68 +254,4 @@ public class jmlPendaftaran extends javax.swing.JFrame {
     private javax.swing.JLabel labelTahun2;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class poliklinik { 
-    static Connection con = DBConnection.getConnection();
-
-    static String[] getPoliklinik(){
-           
-      PreparedStatement pst = null;
-      String[] arrPoliklinik = new String[100];
-      String sql = "select * from POLIKLINIK";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrPoliklinik[i] = st.getString(2);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrPoliklinik;
-    }
-    
-    static String textProcedure(String aNama, String aBulan, String aTahun){
-        String text;
-        Scanner input = new Scanner(System.in);
-        CallableStatement stmt = null;
-        String result = "";
-        try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call JML_RIWAYAT_PENDAFTARAN(?,?,?,?)}");
-			stmt.setString(1, aNama);
-			stmt.setString(2, aBulan);
-			stmt.setString(3, aTahun);
-	
-         
-			//register the OUT parameter before calling the stored procedure
-			stmt.registerOutParameter(4, java.sql.Types.VARCHAR);
-			
-			stmt.executeUpdate();
-			result = stmt.getString(4);
-			//read the OUT parameter now
-//			System.out.println(result);
-		}catch(Exception e){
-//			e.printStackTrace();
-                        
-		}finally{
-			try {
-				stmt.close();
-//				con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-                        return result;
-                        
-		}
-        
-    }
-    
 }

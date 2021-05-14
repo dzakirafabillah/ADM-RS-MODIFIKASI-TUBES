@@ -163,7 +163,7 @@ public class formPemasukan extends javax.swing.JFrame {
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
        String tahun = choiceTahun.getSelectedItem();
        String hasil = "";
-       hasil = Pemasukan.getPemasukan(tahun);
+       hasil = Query.getPemasukan(tahun);
 //       JOptionPane.showMessageDialog(null, "Pemasukan Rumah Sakit pada tahun " + tahun+ " adalah :\n Rp  " + hasil);
        result_pemasukan.setText("Pemasukan Rumah Sakit pada tahun " + tahun+ " adalah :\n Rp  " + hasil);
     }//GEN-LAST:event_submitActionPerformed
@@ -224,29 +224,4 @@ public class formPemasukan extends javax.swing.JFrame {
     private java.awt.TextArea textArea1;
     private java.awt.TextArea textArea2;
     // End of variables declaration//GEN-END:variables
-}
-
-class Pemasukan { 
-    static Connection con = DBConnection.getConnection();
-
-    static String getPemasukan(String year){
-           
-      PreparedStatement pst = null;
-      String hasil = "0";
-      String sql = "SELECT GET_INCOME("+year+")FROM DUAL";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            
-            while(st.next()){
-               hasil = "\n"+st.getString(1);
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Pemasukan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return String.valueOf(hasil);
-    }
 }

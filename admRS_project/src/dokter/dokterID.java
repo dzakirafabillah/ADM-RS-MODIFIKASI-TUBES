@@ -6,8 +6,7 @@ package dokter;
  */
 import java.awt.*;
 import javax.swing.*;
-import AdministrasiRS.DBConnection;
-import AdministrasiRS.viewDokter;
+import AdministrasiRS.*;
 import dokter.*;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -135,7 +134,7 @@ public class dokterID extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        if(searchID.search(field_idDok.getText())){
+        if(Query.searchIdDok(field_idDok.getText())){
             JOptionPane.showMessageDialog(null, "Dokter dengan ID " + field_idDok.getText() + " tidak ditemukan");
         }else{
             updateDokter start = new updateDokter(field_idDok.getText());
@@ -205,44 +204,4 @@ public class dokterID extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader5;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class searchID { 
-    static Connection con = DBConnection.getConnection();
-    
-    static boolean search(String idDok){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from DOKTER WHERE id_dokter = '" + idDok + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[0][7];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][7];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<8 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            System.out.println(result.length == 0);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(searchID.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        return (result.length == 0);
-        
-    }
 }

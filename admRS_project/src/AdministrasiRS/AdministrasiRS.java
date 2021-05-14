@@ -12,7 +12,7 @@ package AdministrasiRS;
  */
 public class AdministrasiRS {
      public static void main(String[] args) {
-        MainMenu adm = new MainMenu();
+        LoginPageFrame adm = new LoginPageFrame();
         adm.run();
     }
 }

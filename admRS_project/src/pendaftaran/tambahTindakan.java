@@ -1,6 +1,7 @@
 package pendaftaran;
 
 
+import keuangan.viewKeuanganTindakan;
 import AdministrasiRS.*;
 import java.awt.*;
 import java.sql.PreparedStatement;
@@ -147,12 +148,12 @@ public class tambahTindakan extends javax.swing.JFrame {
         String deskripsi = field_deskripsi.getText();
         String tarif = field_tarif.getText();
 
-        insertTindakan.addTindakan(namaTindakan,tarif,deskripsi);
+        Query.addTindakan(namaTindakan,tarif,deskripsi);
         this.clear();
     }//GEN-LAST:event_submitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPendaftaran start = new viewPendaftaran();
+        viewKeuanganTindakan start = new viewKeuanganTindakan();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -216,49 +217,3 @@ public class tambahTindakan extends javax.swing.JFrame {
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
 }
-
-class insertTindakan {
-     static Connection con = DBConnection.getConnection();
-     
-     static void addTindakan(String tNamaTindakan, String tTarif, String tDeskripsi){
-         String namaTindakan = tNamaTindakan;
-         int tarif = Integer.parseInt(tTarif);
-         String deskripsi = tDeskripsi;
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call TINDAKAN_INSERT(?,?,"+tarif+")}");
-			
-			stmt.setString(1, namaTindakan);
-                        stmt.setString(2, deskripsi);
-			
-			
-			//register the OUT parameter before calling the stored procedure
-			//stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
-                        //stmt.registerOutParameter(1, java.sql.Types.DATE);
-			
-			stmt.executeUpdate();
-			
-			//read the OUT parameter now
-                        //String result = stmt.getString(3);
-                        JOptionPane.showMessageDialog(null, "Insert Tindakan Berhasil Dilakukan");
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Insert Tindakan Gagal Dilakukan");
-		}finally{
-			try {
-				stmt.close();
-				con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-     }
-}
-

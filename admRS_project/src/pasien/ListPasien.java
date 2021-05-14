@@ -63,7 +63,7 @@ static Connection con = DBConnection.getConnection();
             new String [] {
             }
         ));
-        Object[][] tempp = daftar.DaftarPasien();
+        Object[][] tempp = Query.DaftarPasien();
 
         tabelPasien.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -159,7 +159,7 @@ static Connection con = DBConnection.getConnection();
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
          String noRM = searchBox.getText();
-        Object[][] tempp = daftar.searchPasien(noRM);
+        Object[][] tempp = Query.searchPasien(noRM);
 
         tabelPasien.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -172,7 +172,7 @@ static Connection con = DBConnection.getConnection();
     private void AllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllActionPerformed
         // TODO add your handling code here:
          
-        Object[][] tempp = daftar.DaftarPasien();
+        Object[][] tempp = Query.DaftarPasien();
 
         tabelPasien.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -187,7 +187,7 @@ static Connection con = DBConnection.getConnection();
     }//GEN-LAST:event_searchBoxActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPasien start = new viewPasien();
+        MainMenuAdmin start = new MainMenuAdmin();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

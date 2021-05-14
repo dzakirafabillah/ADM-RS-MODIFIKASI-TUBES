@@ -100,7 +100,7 @@ public class inputPendaftaran extends javax.swing.JFrame {
         });
 
         String[] polList = new String[100];
-        polList = poliklinik.getPoliklinik();
+        polList = Query.getPoliklinik();
         for (int j = 0; j < 100; j++) {
             if (polList[j] != null){
                 choicePoliklinik.addItem(polList[j]);
@@ -199,9 +199,9 @@ public class inputPendaftaran extends javax.swing.JFrame {
         }else{
             trawat = "JALAN";
         }
-        tambah InsertDaftar = new tambah();
+        Query InsertDaftar = new Query();
         
-        String hasil = tambah.addDaftar(sym,diag,trawat,norek,idP);
+        String hasil = Query.addDaftar(sym,diag,trawat,norek,idP);
         this.clear();
     }//GEN-LAST:event_submitActionPerformed
 
@@ -210,7 +210,7 @@ public class inputPendaftaran extends javax.swing.JFrame {
     }//GEN-LAST:event_tipeActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPendaftaran start = new viewPendaftaran();
+        MainMenuPasien start = new MainMenuPasien();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -281,33 +281,4 @@ public class inputPendaftaran extends javax.swing.JFrame {
     private javax.swing.JTextField symptom;
     private javax.swing.JComboBox<String> tipe;
     // End of variables declaration//GEN-END:variables
-}
-
-class poliklinik { 
-    static Connection con = DBConnection.getConnection();
-
-    static String[] getPoliklinik(){
-           
-      PreparedStatement pst = null;
-      String[] arrPoliklinik = new String[100];
-      String sql = "select * from POLIKLINIK";
-      ResultSet st;
-         
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            int i = 0; 
-            while(st.next()){
-                arrPoliklinik[i] = st.getString(1);
-                i++;
-            }
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(poliklinik.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrPoliklinik;
-    }
-    
-    
-    
 }

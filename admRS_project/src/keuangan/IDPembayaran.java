@@ -6,6 +6,7 @@
 package keuangan;
 
 import AdministrasiRS.DBConnection;
+import AdministrasiRS.Query;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -125,10 +126,10 @@ public class IDPembayaran extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        if(searchID.search(field_idP.getText())){
+        if(Query.searchPembayaran(field_idP.getText())){
             JOptionPane.showMessageDialog(null, "Dokter dengan ID " + field_idP.getText() + " tidak ditemukan");
         }else{
-            searchID.updStatusPembayaran(field_idP.getText());
+            Query.updStatusPembayaran(field_idP.getText());
         }
     }//GEN-LAST:event_submitActionPerformed
 
@@ -187,73 +188,5 @@ public class IDPembayaran extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader5;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class searchID { 
-    static Connection con = DBConnection.getConnection();
-    
-    static boolean search(String idP){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from PEMBAYARAN WHERE id_pembayaran = '" + idP + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[0][4];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][4];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<5 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            System.out.println(result.length == 0);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(searchID.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        return (result.length == 0);
-        
-    }
-    static void updStatusPembayaran(String idP){
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call PEMBAYARAN_UPDATE_SUDAH_BAYAR(?)}");
-			stmt.setString(1, idP);
-			
-			stmt.executeUpdate();
-			
-                        JOptionPane.showMessageDialog(null, "Status Pembayaran Berubah Menjadi Sudah Dibayar");
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Update Status Pembayaran Gagal Dilakukan");
-		}finally{
-			try {
-				stmt.close();
-//				con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-     }
 }
 

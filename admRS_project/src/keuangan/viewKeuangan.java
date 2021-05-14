@@ -1,4 +1,5 @@
-package AdministrasiRS;
+package keuangan;
+import AdministrasiRS.MainMenuKeuangan;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -34,7 +35,7 @@ public class viewKeuangan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader.setText("Kelola Data Dokter");
+        labelHeader.setText("Kelola Data Keuangan");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
@@ -122,7 +123,7 @@ public class viewKeuangan extends javax.swing.JFrame {
     }//GEN-LAST:event_pemasukanRSActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MainMenu start = new MainMenu();
+        MainMenuKeuangan start = new MainMenuKeuangan();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

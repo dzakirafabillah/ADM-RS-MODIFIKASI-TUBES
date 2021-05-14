@@ -1,6 +1,8 @@
 package AdministrasiRS;
 
 
+import poliklinik.viewPoliklinik;
+import dokter.viewDokter;
 import keuangan.formPemasukan;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,12 +18,12 @@ import javax.swing.*;
  *
  * @author DZAKIRA
  */
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenuDokter extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public MainMenu() {
+    public MainMenuDokter() {
         initComponents();
     }
 
@@ -37,15 +39,14 @@ public class MainMenu extends javax.swing.JFrame {
         jColorChooser1 = new javax.swing.JColorChooser();
         buttonPoliklinik = new javax.swing.JButton();
         buttonDokter = new javax.swing.JButton();
-        buttonPendaftaran = new javax.swing.JButton();
         buttonPasien = new javax.swing.JButton();
-        buttonPemasukan = new javax.swing.JButton();
         labelHeader = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrasi RS DPR");
 
-        buttonPoliklinik.setText("Kelola Data Poliklinik     ");
+        buttonPoliklinik.setText("Riwayat Pendaftaran");
         buttonPoliklinik.setBackground(new Color(119,136,153));
         buttonPoliklinik.setFont(new Font("Century Gothic", Font.BOLD, 18));
         buttonPoliklinik.setForeground(SystemColor.menu);
@@ -55,7 +56,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonDokter.setText("Kelola Data Dokter");
+        buttonDokter.setText("Resep Obat");
         buttonDokter.setBackground(new Color(119,136,153));
         buttonDokter.setFont(new Font("Century Gothic", Font.BOLD, 18));
         buttonDokter.setForeground(SystemColor.menu);
@@ -65,17 +66,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonPendaftaran.setText("Kelola Data Pendaftaran");
-        buttonPendaftaran.setBackground(new Color(119,136,153));
-        buttonPendaftaran.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPendaftaran.setForeground(SystemColor.menu);
-        buttonPendaftaran.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPendaftaranActionPerformed(evt);
-            }
-        });
-
-        buttonPasien.setText("Kelola Data Pasien");
+        buttonPasien.setText("Antrian Hariini");
         buttonPasien.setBackground(new Color(119,136,153));
         buttonPasien.setFont(new Font("Century Gothic", Font.BOLD, 18));
         buttonPasien.setForeground(SystemColor.menu);
@@ -85,41 +76,41 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonPemasukan.setText("Keuangan RS");
-        buttonPemasukan.setBackground(new Color(119,136,153));
-        buttonPemasukan.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPemasukan.setForeground(SystemColor.menu);
-        buttonPemasukan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPemasukanActionPerformed(evt);
-            }
-        });
-
-        labelHeader.setText("Administrasi Rumah Sakit DPR");
+        labelHeader.setText("Selamat Datang Dokter");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 35));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
         labelHeader.setHorizontalAlignment(SwingConstants.CENTER);
+
+        btnBack.setText("Kembali");
+        btnBack.setBackground(new Color(119,136,153));
+        btnBack.setForeground(SystemColor.menu);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(labelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPendaftaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(63, 63, 63))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(buttonPemasukan, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(227, 227, 227))
+                .addGap(56, 56, 56)
+                .addComponent(buttonPoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(buttonDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnBack)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,13 +121,11 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonPoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(buttonPemasukan, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(buttonDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addContainerGap())
         );
 
         pack();
@@ -154,23 +143,17 @@ public class MainMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_buttonDokterActionPerformed
 
-    private void buttonPendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPendaftaranActionPerformed
-        viewPendaftaran start = new viewPendaftaran();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_buttonPendaftaranActionPerformed
-
     private void buttonPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPasienActionPerformed
-        viewPasien start = new viewPasien();
-        start.run();
-        this.setVisible(false);
+      //  viewPasien start = new viewPasien();
+       // start.run();
+        //this.setVisible(false);
     }//GEN-LAST:event_buttonPasienActionPerformed
 
-    private void buttonPemasukanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPemasukanActionPerformed
-        viewKeuangan start = new viewKeuangan();
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        LoginPageFrame start = new LoginPageFrame();
         start.run();
         this.setVisible(false);
-    }//GEN-LAST:event_buttonPemasukanActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
     
     /**
      * @param args the command line arguments
@@ -202,23 +185,22 @@ public class MainMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MainMenu().setVisible(true);
+            new MainMenuDokter().setVisible(true);
         });
         
         
     }
     
     public void run() {
-                MainMenu calcu = new MainMenu();
+                MainMenuDokter calcu = new MainMenuDokter();
                 calcu.getContentPane().setBackground(new Color(204,229,255));
                 calcu.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton buttonDokter;
     private javax.swing.JButton buttonPasien;
-    private javax.swing.JButton buttonPemasukan;
-    private javax.swing.JButton buttonPendaftaran;
     private javax.swing.JButton buttonPoliklinik;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel labelHeader;

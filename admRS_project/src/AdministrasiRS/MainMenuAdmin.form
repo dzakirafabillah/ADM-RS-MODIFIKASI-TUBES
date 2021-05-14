@@ -33,19 +33,19 @@
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonDokter" max="32767" attributes="0"/>
-                  <Component id="buttonPoliklinik" max="32767" attributes="0"/>
+                  <Component id="buttonPoliklinik" pref="177" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonPasien" max="32767" attributes="0"/>
-                  <Component id="buttonPendaftaran" max="32767" attributes="0"/>
+                  <Component id="buttonPendaftaran" pref="183" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="63" max="32767" attributes="0"/>
-              <Component id="buttonPemasukan" min="-2" pref="195" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,9 +64,9 @@
                   <Component id="buttonDokter" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="buttonPendaftaran" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="buttonPemasukan" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,7 +107,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonPasien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kelola Data Pasien"/>
+        <Property name="text" type="java.lang.String" value="Data Pasien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPasienActionPerformed"/>
@@ -116,23 +116,23 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonPasien.setBackground(new Color(119,136,153));&#xa;buttonPasien.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonPasien.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonPemasukan">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Keuangan RS"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPemasukanActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonPemasukan.setBackground(new Color(119,136,153));&#xa;buttonPemasukan.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonPemasukan.setForeground(SystemColor.menu);"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelHeader">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Administrasi Rumah Sakit DPR"/>
+        <Property name="text" type="java.lang.String" value="Selamat Datang Admin"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 35));&#xa;labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader.setBounds(114, 68, 213, 59);&#xa;labelHeader.setHorizontalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kembali"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack.setBackground(new Color(119,136,153));&#xa;btnBack.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
   </SubComponents>

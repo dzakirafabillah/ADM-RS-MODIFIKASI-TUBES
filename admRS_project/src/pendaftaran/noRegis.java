@@ -1,6 +1,7 @@
 package pendaftaran;
 
 import AdministrasiRS.DBConnection;
+import AdministrasiRS.Query;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -121,7 +122,7 @@ public class noRegis extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        if(searchNoReg.search(field_idDok.getText())){
+        if(Query.searchNoRegis(field_idDok.getText())){
             JOptionPane.showMessageDialog(null, "Riwayat Pendaftaran dengan No Registrasi " + field_idDok.getText() + " tidak ditemukan");
         }else{
             updateRP start = new updateRP(field_idDok.getText());
@@ -190,45 +191,4 @@ public class noRegis extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader5;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-
-class searchNoReg { 
-    static Connection con = DBConnection.getConnection();
-    
-    static boolean search(String noReg){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE no_registrasi = '" + noReg + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[0][8];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][8];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<8 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            System.out.println(result.length == 0);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(searchNoReg.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        return (result.length == 0);
-        
-    }
 }

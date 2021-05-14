@@ -192,9 +192,9 @@ public class inputPasien extends javax.swing.JFrame {
             Gender = "LAKI-LAKI";
         }
         
-        tambah InsertPasien = new tambah();
+        Query InsertPasien = new Query();
         
-        String hasil = tambah.addPasien(Nama,Gender,TglLahir);
+        String hasil = Query.addPasien(Nama,Gender,TglLahir);
         this.clear();
         
         
@@ -210,7 +210,7 @@ public class inputPasien extends javax.swing.JFrame {
     }//GEN-LAST:event_genderActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPasien start = new viewPasien();
+        MainMenuPasien start = new MainMenuPasien();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

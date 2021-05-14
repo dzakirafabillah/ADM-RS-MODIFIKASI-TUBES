@@ -1,0 +1,2 @@
+dokter.delDokterr
+dokter.deleteDokter

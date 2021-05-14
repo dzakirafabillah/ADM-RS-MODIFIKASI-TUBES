@@ -54,7 +54,7 @@ public class ListPoliklinik extends javax.swing.JFrame {
             new String [] {
             }
         ));
-        Object[][] tempp = daftar.DaftarPoli();
+        Object[][] tempp = Query.DaftarPoli();
 
         tabelPoli.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -145,7 +145,7 @@ public class ListPoliklinik extends javax.swing.JFrame {
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         // TODO add your handling code here:
         String noID = searchBox.getText();
-        Object[][] tempp = daftar.searchPoli(noID);
+        Object[][] tempp = Query.searchPoli(noID);
 
         tabelPoli.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -157,7 +157,7 @@ public class ListPoliklinik extends javax.swing.JFrame {
 
     private void AllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllActionPerformed
         // TODO add your handling code here:
-     Object[][] tempp = daftar.DaftarPoli();
+     Object[][] tempp = Query.DaftarPoli();
 
         tabelPoli.setModel(new javax.swing.table.DefaultTableModel(
             tempp,

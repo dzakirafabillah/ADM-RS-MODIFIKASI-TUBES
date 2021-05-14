@@ -6,6 +6,7 @@
 package pendaftaran;
 
 import AdministrasiRS.DBConnection;
+import AdministrasiRS.Query;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -30,7 +31,7 @@ public class updateRP extends javax.swing.JFrame {
      * Creates new form updateRP
      */
     public updateRP(String noRegis) {
-        riwayatPendaftaran = updateRP2.getSearch(noRegis);
+        riwayatPendaftaran = Query.getSearchRP(noRegis);
         initComponents();
         if (riwayatPendaftaran[0][7] != null){
            diagnosa.setText((riwayatPendaftaran[0][7]).toString()); 
@@ -135,7 +136,7 @@ public class updateRP extends javax.swing.JFrame {
         
         String noRegis = (riwayatPendaftaran[0][0]).toString();
 
-        updateRP2.updRP(noRegis, diag);
+        Query.updRP(noRegis, diag);
 
         diagnosa.setText("");
     }//GEN-LAST:event_submitActionPerformed
@@ -159,75 +160,4 @@ public class updateRP extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader2;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
-}
-
-class updateRP2 {
-     static Connection con = DBConnection.getConnection();
-     
-     static void updRP(String noRegis, String diagnosa){
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call RIWAYAT_PENDAFTARAN_UPDATE(?,?)}");
-			stmt.setString(1, noRegis);
-			stmt.setString(2, diagnosa);
-			
-			stmt.executeUpdate();
-			
-                        JOptionPane.showMessageDialog(null, "Update Riwayat Pendaftaran Berhasil Dilakukan");
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Update Riwayat Pendaftaran Gagal Dilakukan");
-		}finally{
-			try {
-				stmt.close();
-				con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-     }
-
-
-
-   
-
-    static Object[][] getSearch(String noRegis){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE no_registrasi = '" + noRegis + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[1][8];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<9 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(updateRP2.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
-
-
 }
