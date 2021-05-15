@@ -129,7 +129,7 @@ public class strukPembayaran extends javax.swing.JFrame {
         if(Query.searchPembayaran(idPembayaran)){
             JOptionPane.showMessageDialog(null, "Pembayaran dengan ID " + field_idP.getText() + " tidak ditemukan");
         }else{
-            strukResult start = new strukResult (idPembayaran, Query.getTarif(idPembayaran));
+            strukResult start = new strukResult(idPembayaran, Query.getTarif(idPembayaran));
             start.run(idPembayaran, Query.getTarif(idPembayaran));
             this.setVisible(false);
         }

@@ -45,34 +45,40 @@
                       <Component id="labelHeader" pref="660" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelHeader1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="field_search" min="-2" pref="103" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnAll" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="btnaddTindakan" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnLihatListTdk" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnUpdDiagnosa" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelHeader1" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="field_search" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAll" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="btnaddTindakan" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="jScrollPane1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -80,7 +86,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelHeader" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="labelHeader1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -89,10 +95,14 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAll" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="142" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnaddTindakan" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnaddTindakan" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLihatListTdk" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUpdDiagnosa" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="106" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -129,7 +139,7 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor" postCode="Object[][] tempp = Query.getListPendaftaran(); &#xa;&#xa;jTable1.setModel(new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;        &quot;No Registrasi&quot;, &quot;Symptom&quot;, &quot;Tipe Rawat&quot;, &quot;Tgl Registrasi&quot;, &quot;Usia&quot;, &quot;No Rekam Medis&quot;, &quot;ID Poliklinik&quot; , &quot;Diagnosa&quot;&#xa;    }&#xa;));">
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor" postCode="Object[][] tempp = Query.getListPendaftaran(); &#xa;&#xa;jTable1.setModel(new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;         &quot;No Registrasi&quot;,&quot;No Antri&quot;, &quot;Symptom&quot;, &quot;Diagnosa&quot;, &quot;Tipe Rawat&quot;, &quot;Tgl Registrasi&quot;, &quot;Usia&quot;, &quot;No Rekam Medis&quot;, &quot;ID Poliklinik&quot; ,&quot;ID Dokter&quot;&#xa;    }&#xa;));">
               <Table columnCount="0" rowCount="0"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -168,7 +178,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelHeader1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search by no rekam medis"/>
+        <Property name="text" type="java.lang.String" value="Search by No Rekam Medis/Diagnosa"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;//labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader1.setBounds(114, 68, 213, 59);&#xa;labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);"/>
@@ -183,6 +193,28 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnAll.setBackground(new Color(119,136,153));&#xa;btnAll.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdDiagnosa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update Diagnosa"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdDiagnosaActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnaddTindakan.setBackground(new Color(119,136,153));&#xa;btnaddTindakan.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLihatListTdk">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Daftar Tindakan Diterima"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLihatListTdkActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnaddTindakan.setBackground(new Color(119,136,153));&#xa;btnaddTindakan.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
   </SubComponents>

@@ -228,7 +228,7 @@ public class listDokterr extends javax.swing.JFrame {
             }
         });
 
-        Object[][] tempp = daftarDokter.getListDokter();
+        Object[][] tempp = Query.getListDokter();
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
@@ -283,18 +283,16 @@ public class listDokterr extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack1)
-                        .addContainerGap(608, Short.MAX_VALUE))
+                    .addComponent(labelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                            .addComponent(btnBack1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnupdDokter)
                                 .addGap(50, 50, 50)
-                                .addComponent(btndelDokter)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                .addComponent(btndelDokter)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +337,7 @@ public class listDokterr extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String noRM =field_search1.getText();
-        Object[][] tempp = daftarDokter.getListSearch(noRM);
+        Object[][] tempp = Query.getListSearchDokter(noRM);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -350,7 +348,7 @@ public class listDokterr extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllActionPerformed
-        Object[][] tempp = daftarDokter.getListDokter();
+        Object[][] tempp = Query.getListDokter();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -362,7 +360,7 @@ public class listDokterr extends javax.swing.JFrame {
 
     private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
         String noRM =field_search1.getText();
-        Object[][] tempp = daftarDokter.getListSearch(noRM);
+        Object[][] tempp = Query.getListSearchDokter(noRM);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -373,7 +371,7 @@ public class listDokterr extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearch1ActionPerformed
 
     private void btnAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAll1ActionPerformed
-        Object[][] tempp = daftarDokter.getListDokter();
+        Object[][] tempp = Query.getListDokter();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
@@ -465,80 +463,4 @@ public class listDokterr extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader2;
     private javax.swing.JLabel labelHeader3;
     // End of variables declaration//GEN-END:variables
-}
-
-class daftarDokter {
-    static Connection con = DBConnection.getConnection();
-
-    static Object[][] getListDokter(){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from DOKTER";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[30][7];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][7];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<8 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(daftarDokter.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
-    
-    static Object[][] getListSearch(String noRM){
-      
-      PreparedStatement pst = null;
-      
-      String sql = "select * from DOKTER WHERE id_dokter = '" + noRM + "'";
-      ResultSet st;
-      int size = 0;
-      Object[][] result =  new Object[30][7];
-        
-        try {
-            pst = con.prepareStatement(sql);
-            st=pst.executeQuery();
-            while(st.next()){
-                size++;
-            }
-            result =  new Object[size][7];
-            
-            st=pst.executeQuery();
-            int i=0;
-            while(st.next()){
-                for (int k =1; k<8 ;k++){
-                    result[i][k-1] = st.getString(k);
-                }
-                i++;
-            }
-            
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(daftarDokter.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }  
-        return result;
-        
-    }
 }

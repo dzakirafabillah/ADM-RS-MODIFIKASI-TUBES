@@ -113,7 +113,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+				//con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -194,7 +194,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-//				con.close();
+//				//con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -241,7 +241,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+			//	con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -277,7 +277,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+			//	con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -371,6 +371,79 @@ public class Query {
         
         try {
             pst = con.prepareStatement(sql);
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<8 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    
+    public static Object[][] getListDokter(){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from DOKTER";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][7];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][7];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<8 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    public static Object[][] getListSearchDokter(String noRM){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from DOKTER WHERE id_dokter = '" + noRM + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][7];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][7];
             
             st=pst.executeQuery();
             int i=0;
@@ -485,7 +558,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+	//			con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -528,7 +601,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+	//			con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -618,7 +691,7 @@ public class Query {
       String sql = "select * from RIWAYAT_PENDAFTARAN";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][8];
+      Object[][] result =  new Object[30][10];
         
         try {
             pst = con.prepareStatement(sql);
@@ -626,12 +699,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][8];
+            result =  new Object[size][10];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<9 ;k++){
+                for (int k =1; k<11 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -651,10 +724,11 @@ public class Query {
       
       PreparedStatement pst = null;
       
-      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE pasien_no_rekam_medis = '" + noRM + "'";
+      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE pasien_no_rekam_medis = '" 
+                    + noRM + "' OR diagnosa = '" + noRM + "'";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][8];
+      Object[][] result =  new Object[30][10];
         
         try {
             pst = con.prepareStatement(sql);
@@ -662,12 +736,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][8];
+            result =  new Object[size][10];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<9 ;k++){
+                for (int k =1; k<11 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -776,7 +850,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+		//		con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -816,6 +890,78 @@ public class Query {
         
     }
 
+    
+     public  static Object[][] getDaftarAntrian(String idDok, String tgl){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE dokter_id_dokter = '" 
+                    + idDok + "' AND tgl_registrasi = '" + tgl +"'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][4];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][4];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<5 ;k++){
+                    if(k-1 == 2) {
+                        result[i][k-1] = st.getString(8);
+                    }else if (k-1 == 3){
+                        result[i][k-1] = st.getString(3);
+                    }else{
+                        result[i][k-1] = st.getString(k);
+                    }
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return result;
+        
+    }
+     
+     
+     public static void updDiagnosa(String noReg, String diagnosa){
+         CallableStatement stmt = null;
+         Scanner input = new Scanner(System.in);
+         
+         try{
+			con = DBConnection.getConnection();
+			stmt = con.prepareCall("{call DIAGNOSA_UPDATE(?,?)}");
+			stmt.setString(1, noReg);
+			stmt.setString(2, diagnosa);
+			
+			stmt.executeUpdate();
+			
+                        JOptionPane.showMessageDialog(null, "Update Diagnosa Berhasil Dilakukan");
+                        
+		}catch(Exception e){
+//			e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Update Diagnosa Gagal Dilakukan");
+		}finally{
+			try {
+				stmt.close();
+				//con.close();
+				input.close();
+			} catch (SQLException e) {
+//				e.printStackTrace();
+			}
+		}
+         
+     }
     /*************************** TINDAKAN ****************************/
     /************************************************************************/
     
@@ -851,7 +997,7 @@ public class Query {
 		}finally{
 			try {
 				stmt.close();
-				con.close();
+		//		con.close();
 				input.close();
 			} catch (SQLException e) {
 //				e.printStackTrace();
@@ -869,7 +1015,6 @@ public class Query {
       
       
       String sql2 = "select rp_no_registrasi FROM PEMBAYARAN WHERE id_pembayaran = '" + idP +"'" ;
-      System.out.println(sql2);
       ResultSet st, st2, st3;
       int size = 0;
       Object[][] result =  new Object[0][0];
@@ -885,19 +1030,19 @@ public class Query {
                     result2[i][0] = st2.getString(1);  
             }
             
-            String sql = "select id_tindakan,tarif,jumlah,total from TINDAKAN_HISTORY WHERE no_registrasi = '" + result2[0][0] +"'" ;
+            String sql = "select id_tindakan,jumlah,total_tarif from TINDAKAN_HISTORY WHERE no_registrasi = '" + result2[0][0] +"'" ;
             pst = con.prepareStatement(sql);
             
             st=pst.executeQuery();
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][4];
+            result =  new Object[size][3];
             
             st=pst.executeQuery();
             i=0;
             while(st.next()){
-                for (int k =1; k<5 ;k++){
+                for (int k =1; k<4 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 String sqlNamaTindakan = "select * from TINDAKAN WHERE id_tindakan = '" + st.getString(1) +"'" ;
@@ -1044,34 +1189,25 @@ public class Query {
     /****************************** KEUANGAN ******************************/
     /************************************************************************/
     
-    public static String getTarif(String noRegis){
-        Scanner input = new Scanner(System.in);
-        CallableStatement stmt = null;
-        String result = "";
-        try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call TOTAL_TARIF(?,?)}");
-			stmt.setString(1, noRegis);
-      
-			//register the OUT parameter before calling the stored procedure
-			stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
-			
-			stmt.executeUpdate();
-			result = stmt.getString(2);
-			//read the OUT parameter now
-                        
-		}catch(Exception e){
-//			e.printStackTrace();
-		}finally{
-			try {
-                                stmt.close();
-//				con.close();
-				input.close();
-			} catch (SQLException e){
-//				e.printStackTrace();
-			}
-                        return result;                        
-		}        
+    public static String getTarif(String idP){
+           
+      PreparedStatement pst = null;
+      String hasil = "0";
+      String sql = "SELECT total_pembayaran FROM PEMBAYARAN WHERE id_pembayaran = '" + idP + "'";
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            
+            while(st.next()){
+               hasil = "\n"+st.getString(1);
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return String.valueOf(hasil);
     }
     
     public static boolean searchPembayaran(String idP){
@@ -1187,8 +1323,458 @@ public class Query {
         return result;
         
     }
-}
-
 
     /************************* RESEP DAN OBAT *************************/
     /************************************************************************/
+
+    public static void addObat(String tNamaObat, String tKodeObat, 
+            String tIdJenis, String tHarga, String tStock){
+             int harga = Integer.parseInt(tHarga);
+             int stock = Integer.parseInt(tStock);
+
+             CallableStatement stmt = null;
+             Scanner input = new Scanner(System.in);
+
+             try{
+                            con = DBConnection.getConnection();
+                            stmt = con.prepareCall("{call OBAT_INSERT(?,?,"+stock+","+harga+",?)}");
+
+                            stmt.setString(1, tKodeObat);
+                            stmt.setString(2, tNamaObat);
+                            stmt.setString(3, tIdJenis);
+
+
+                            //register the OUT parameter before calling the stored procedure
+                            //stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+                            //stmt.registerOutParameter(1, java.sql.Types.DATE);
+
+                            stmt.executeUpdate();
+
+                            //read the OUT parameter now
+                            //String result = stmt.getString(3);
+                            JOptionPane.showMessageDialog(null, "Insert Obat Berhasil Dilakukan");
+
+                    }catch(Exception e){
+    			e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Insert Obat Gagal Dilakukan");
+                    }finally{
+                            try {
+                                    stmt.close();
+                                   // con.close();
+                                    input.close();
+                            } catch (SQLException e) {
+    //				e.printStackTrace();
+                            }
+                    }
+
+         }
+    
+    
+    public static Object[][] getListObat(){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from OBAT";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][7];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][7];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<8 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    public static Object[][] getListSearchObat(String idJenis){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from OBAT WHERE ID_JENIS_OBAT = '" + idJenis + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][7];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][7];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<8 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    
+    public static String[] getIngredients(String idObat){
+           
+      PreparedStatement pst = null;
+      String[] arrIngredients = new String[100];
+      String sql = "select * from KANDUNGAN_OBAT WHERE ID_OBAT = '" + idObat + "'";
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            int i = 0; 
+            while(st.next()){
+                arrIngredients[i] = st.getString(4);
+                i++;
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrIngredients;
+    }
+    
+    public static boolean searchIdObat(String idObat){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from OBAT WHERE id_obat = '" + idObat + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[0][7];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][7];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<8 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            System.out.println(result.length == 0);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return (result.length == 0);
+        
+    }
+
+    public static Object[][] getListResep(){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from RESEP";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[0][6];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][5];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<6 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    
+    public static boolean searchResep(String idResep){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from RESEP WHERE id_resep = '" + idResep + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[1][4];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][4];
+            
+            pst.close();
+            System.out.println(size == 0);
+            
+        } catch (SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return (result.length == 0);
+    }
+    
+    public static void updStatusResep(String idResep){
+         
+         CallableStatement stmt = null;
+         Scanner input = new Scanner(System.in);
+         
+         try{
+			con = DBConnection.getConnection();
+			stmt = con.prepareCall("{call TEBUS_RESEP(?)}");
+			stmt.setString(1, idResep);
+			
+			stmt.executeUpdate();
+			
+                        JOptionPane.showMessageDialog(null, "Status Tebus Berubah Menjadi Sudah Ditebus");
+                        
+		}catch(Exception e){
+//			e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Update Status Tebus Resep Gagal Dilakukan");
+		}finally{
+			try {
+				stmt.close();
+//				con.close();
+				input.close();
+			} catch (SQLException e) {
+//				e.printStackTrace();
+			}
+		}
+         
+     }
+    
+    
+    public static String getTarifResep(String idR){
+           
+      PreparedStatement pst = null;
+      String hasil = "0";
+      String sql = "SELECT GET_TOTAL_TARIF_RESEP('"+idR+"')FROM DUAL";
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            
+            while(st.next()){
+               hasil = "\n"+st.getString(1);
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return String.valueOf(hasil);
+    }
+
+    
+    public static Object[][] getListObatResep(String idResep){
+      
+      PreparedStatement pst = null;
+      PreparedStatement pst2 = null;
+      PreparedStatement pst3 = null;
+      
+      ResultSet st, st2, st3;
+      int size = 0;
+      Object[][] result =  new Object[0][0];
+      Object[][] result2 =  new Object[1][1];
+        
+        try {
+            
+            String sql = "select id_obat,jumlah,unit,total_harga from RESEP_OBAT WHERE id_resep = '" + idResep +"'" ;
+            pst = con.prepareStatement(sql);
+            
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][4];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<5 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                String sqlNamaTindakan = "select * from OBAT WHERE id_obat = '" + st.getString(2) +"'" ;
+                pst3 = con.prepareStatement(sqlNamaTindakan);
+
+                st3=pst3.executeQuery();
+                
+                int j = 0;
+                while(st3.next()){
+                    result[i][0] = st3.getString(2);
+                }
+                
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    
+    public static Object[][] getListSearchResep(String noRegis){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from RESEP WHERE NO_REGISTRASI = '" + noRegis + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][4];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][4];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<5 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+
+    public static String addResep(String noReg, String ket){
+         CallableStatement stmt = null;
+         Scanner input = new Scanner(System.in);
+         String hasil = "Resep Record Save Success::";
+         try{
+			con = DBConnection.getConnection();
+			stmt = con.prepareCall("{call RESEP_INSERT(?,?)}");
+			stmt.setString(1, noReg);
+			stmt.setString(2, ket);
+                        stmt.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Resep berhasil dibuat !");
+		}catch(Exception e){
+//			e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Resep gagal dibuat !");
+		}finally{
+			try {
+				stmt.close();
+	//			con.close();
+				input.close();
+			} catch (SQLException e) {
+//				e.printStackTrace();
+			}
+		}
+         
+         return hasil;
+     }
+    
+    
+    public static void insertObatKeResep(String tIdResep, String tIdObat, 
+            String tJml, String tUnit){
+             int jml = Integer.parseInt(tJml);
+
+             CallableStatement stmt = null;
+             Scanner input = new Scanner(System.in);
+
+             try{
+                            con = DBConnection.getConnection();
+                            stmt = con.prepareCall("{call RESEP_OBAT_INSERT(?,?,"+jml+",?)}");
+
+                            stmt.setString(1, tIdResep);
+                            stmt.setString(2, tIdObat);
+                            stmt.setString(3, tUnit);
+
+
+                            //register the OUT parameter before calling the stored procedure
+                            //stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+                            //stmt.registerOutParameter(1, java.sql.Types.DATE);
+
+                            stmt.executeUpdate();
+
+                            //read the OUT parameter now
+                            //String result = stmt.getString(3);
+                            JOptionPane.showMessageDialog(null, "Insert Obat Berhasil Dilakukan");
+
+                    }catch(Exception e){
+    			e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Insert Obat Gagal Dilakukan");
+                    }finally{
+                            try {
+                                    stmt.close();
+                                   // con.close();
+                                    input.close();
+                            } catch (SQLException e) {
+    //				e.printStackTrace();
+                            }
+                    }
+
+         }
+
+}
+
+
+    

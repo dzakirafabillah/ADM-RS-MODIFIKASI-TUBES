@@ -1,6 +1,7 @@
 package AdministrasiRS;
 
 
+import ResepObat.listResepForDokter;
 import poliklinik.viewPoliklinik;
 import dokter.viewDokter;
 import keuangan.formPemasukan;
@@ -8,6 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import pendaftaran.DaftarAntrian;
+import pendaftaran.listPendaftaran;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -37,42 +40,42 @@ public class MainMenuDokter extends javax.swing.JFrame {
     private void initComponents() {
 
         jColorChooser1 = new javax.swing.JColorChooser();
-        buttonPoliklinik = new javax.swing.JButton();
-        buttonDokter = new javax.swing.JButton();
-        buttonPasien = new javax.swing.JButton();
+        buttonRP = new javax.swing.JButton();
+        buttonResepObat = new javax.swing.JButton();
+        buttonAntrian = new javax.swing.JButton();
         labelHeader = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrasi RS DPR");
 
-        buttonPoliklinik.setText("Riwayat Pendaftaran");
-        buttonPoliklinik.setBackground(new Color(119,136,153));
-        buttonPoliklinik.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPoliklinik.setForeground(SystemColor.menu);
-        buttonPoliklinik.addActionListener(new java.awt.event.ActionListener() {
+        buttonRP.setText("Riwayat Pendaftaran");
+        buttonRP.setBackground(new Color(119,136,153));
+        buttonRP.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        buttonRP.setForeground(SystemColor.menu);
+        buttonRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPoliklinikActionPerformed(evt);
+                buttonRPActionPerformed(evt);
             }
         });
 
-        buttonDokter.setText("Resep Obat");
-        buttonDokter.setBackground(new Color(119,136,153));
-        buttonDokter.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonDokter.setForeground(SystemColor.menu);
-        buttonDokter.addActionListener(new java.awt.event.ActionListener() {
+        buttonResepObat.setText("Resep Obat");
+        buttonResepObat.setBackground(new Color(119,136,153));
+        buttonResepObat.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        buttonResepObat.setForeground(SystemColor.menu);
+        buttonResepObat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDokterActionPerformed(evt);
+                buttonResepObatActionPerformed(evt);
             }
         });
 
-        buttonPasien.setText("Antrian Hariini");
-        buttonPasien.setBackground(new Color(119,136,153));
-        buttonPasien.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPasien.setForeground(SystemColor.menu);
-        buttonPasien.addActionListener(new java.awt.event.ActionListener() {
+        buttonAntrian.setText("Antrian Hariini");
+        buttonAntrian.setBackground(new Color(119,136,153));
+        buttonAntrian.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        buttonAntrian.setForeground(SystemColor.menu);
+        buttonAntrian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPasienActionPerformed(evt);
+                buttonAntrianActionPerformed(evt);
             }
         });
 
@@ -98,15 +101,15 @@ public class MainMenuDokter extends javax.swing.JFrame {
             .addComponent(labelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(buttonPoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addComponent(buttonRP, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addComponent(buttonAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(buttonDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonResepObat, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnBack)))
@@ -119,10 +122,10 @@ public class MainMenuDokter extends javax.swing.JFrame {
                 .addComponent(labelHeader)
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonPoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonRP, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addComponent(buttonDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonResepObat, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
@@ -131,23 +134,23 @@ public class MainMenuDokter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonPoliklinikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPoliklinikActionPerformed
-        viewPoliklinik start = new viewPoliklinik();
+    private void buttonRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRPActionPerformed
+        listPendaftaran start = new listPendaftaran();
         start.run();
         this.setVisible(false);
-    }//GEN-LAST:event_buttonPoliklinikActionPerformed
+    }//GEN-LAST:event_buttonRPActionPerformed
 
-    private void buttonDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDokterActionPerformed
-        viewDokter start = new viewDokter();
+    private void buttonResepObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResepObatActionPerformed
+        listResepForDokter start = new listResepForDokter();
         start.run();
         this.setVisible(false);
-    }//GEN-LAST:event_buttonDokterActionPerformed
+    }//GEN-LAST:event_buttonResepObatActionPerformed
 
-    private void buttonPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPasienActionPerformed
-      //  viewPasien start = new viewPasien();
-       // start.run();
-        //this.setVisible(false);
-    }//GEN-LAST:event_buttonPasienActionPerformed
+    private void buttonAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAntrianActionPerformed
+        DaftarAntrian start = new DaftarAntrian();
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonAntrianActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         LoginPageFrame start = new LoginPageFrame();
@@ -199,9 +202,9 @@ public class MainMenuDokter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton buttonDokter;
-    private javax.swing.JButton buttonPasien;
-    private javax.swing.JButton buttonPoliklinik;
+    private javax.swing.JButton buttonAntrian;
+    private javax.swing.JButton buttonRP;
+    private javax.swing.JButton buttonResepObat;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel labelHeader;
     // End of variables declaration//GEN-END:variables

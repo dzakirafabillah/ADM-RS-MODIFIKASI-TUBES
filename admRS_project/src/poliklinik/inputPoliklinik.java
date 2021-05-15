@@ -129,7 +129,6 @@ public class inputPoliklinik extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Nama = nama.getText();
        
-        System.out.println(nama.getText());
         inputDokter start = new  inputDokter(nama.getText());
         start.run();
         this.setVisible(false);

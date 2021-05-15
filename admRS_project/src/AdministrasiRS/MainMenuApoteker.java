@@ -1,6 +1,8 @@
 package AdministrasiRS;
 
 
+import ResepObat.listResep;
+import ResepObat.viewObat;
 import poliklinik.viewPoliklinik;
 import keuangan.formPemasukan;
 import java.awt.*;
@@ -36,35 +38,35 @@ public class MainMenuApoteker extends javax.swing.JFrame {
     private void initComponents() {
 
         jColorChooser1 = new javax.swing.JColorChooser();
-        buttonPoliklinik = new javax.swing.JButton();
-        buttonPasien = new javax.swing.JButton();
+        buttonObat = new javax.swing.JButton();
+        buttonResep = new javax.swing.JButton();
         labelHeader = new javax.swing.JLabel();
         btnBackLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrasi RS DPR");
 
-        buttonPoliklinik.setText("Pendaftaran  Pasien Baru");
-        buttonPoliklinik.setBackground(new Color(119,136,153));
-        buttonPoliklinik.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPoliklinik.setForeground(SystemColor.menu);
-        buttonPoliklinik.addActionListener(new java.awt.event.ActionListener() {
+        buttonObat.setText("Kelola Data Obat");
+        buttonObat.setBackground(new Color(119,136,153));
+        buttonObat.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        buttonObat.setForeground(SystemColor.menu);
+        buttonObat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPoliklinikActionPerformed(evt);
+                buttonObatActionPerformed(evt);
             }
         });
 
-        buttonPasien.setText("Daftar Pemeriksaan ke Poliklinik");
-        buttonPasien.setBackground(new Color(119,136,153));
-        buttonPasien.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        buttonPasien.setForeground(SystemColor.menu);
-        buttonPasien.addActionListener(new java.awt.event.ActionListener() {
+        buttonResep.setText("Resep Obat");
+        buttonResep.setBackground(new Color(119,136,153));
+        buttonResep.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        buttonResep.setForeground(SystemColor.menu);
+        buttonResep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPasienActionPerformed(evt);
+                buttonResepActionPerformed(evt);
             }
         });
 
-        labelHeader.setText("Selamat Datang Pasien");
+        labelHeader.setText("Selamat Datang Apoteker");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 35));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
@@ -87,8 +89,8 @@ public class MainMenuApoteker extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(buttonPoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonResep, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(buttonObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -101,9 +103,9 @@ public class MainMenuApoteker extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(labelHeader)
                 .addGap(75, 75, 75)
-                .addComponent(buttonPoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonObat, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonResep, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(btnBackLogin)
                 .addGap(20, 20, 20))
@@ -112,17 +114,17 @@ public class MainMenuApoteker extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonPoliklinikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPoliklinikActionPerformed
-        viewPoliklinik start = new viewPoliklinik();
+    private void buttonObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonObatActionPerformed
+        viewObat start = new viewObat();
         start.run();
         this.setVisible(false);
-    }//GEN-LAST:event_buttonPoliklinikActionPerformed
+    }//GEN-LAST:event_buttonObatActionPerformed
 
-    private void buttonPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPasienActionPerformed
-//        viewPasien start = new viewPasien();
-//        start.run();
-//        this.setVisible(false);
-    }//GEN-LAST:event_buttonPasienActionPerformed
+    private void buttonResepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResepActionPerformed
+        listResep start = new listResep();
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonResepActionPerformed
 
     private void btnBackLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginActionPerformed
         LoginPageFrame start = new LoginPageFrame();
@@ -174,8 +176,8 @@ public class MainMenuApoteker extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackLogin;
-    private javax.swing.JButton buttonPasien;
-    private javax.swing.JButton buttonPoliklinik;
+    private javax.swing.JButton buttonObat;
+    private javax.swing.JButton buttonResep;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel labelHeader;
     // End of variables declaration//GEN-END:variables

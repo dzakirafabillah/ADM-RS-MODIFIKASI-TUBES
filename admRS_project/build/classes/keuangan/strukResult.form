@@ -32,16 +32,25 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="50" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="field_biaya" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="field_biaya1" min="-2" pref="429" max="-2" attributes="0"/>
+                  <Component id="field_biayaPendaftaran" min="-2" pref="433" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -57,9 +66,11 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace pref="169" max="32767" attributes="0"/>
-              <Component id="field_biaya" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace pref="132" max="32767" attributes="0"/>
+              <Component id="field_biaya1" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="field_biayaPendaftaran" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -103,7 +114,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;        &quot;Nama Tindakan&quot;, &quot;Tarif&quot;, &quot;Jumlah&quot;, &quot;Total&quot;&#xa;    }&#xa;)" type="code"/>
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;        &quot;Nama Tindakan&quot;, &quot;Jumlah&quot;, &quot;Total&quot;&#xa;    }&#xa;)" type="code"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
@@ -129,9 +140,17 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="field_biaya">
+    <Component class="javax.swing.JLabel" name="field_biayaPendaftaran">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="field_biaya.setForeground(new Color(119,136,153));&#xa;field_biaya.setBounds(114, 68, 213, 59);&#xa;field_biaya.setHorizontalAlignment(SwingConstants.CENTER);&#xa;field_biaya.setText(&quot;Total tarif : &quot; + tarif);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="field_biayaPendaftaran.setForeground(new Color(119,136,153));&#xa;field_biayaPendaftaran.setBounds(114, 68, 213, 59);&#xa;field_biayaPendaftaran.setHorizontalAlignment(SwingConstants.CENTER);&#xa;field_biayaPendaftaran.setText(&quot;Total tarif : &quot; + tarif);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="field_biaya1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Biaya Pendaftaran : 25.000"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="field_biayaPendaftaran.setForeground(new Color(119,136,153));&#xa;field_biayaPendaftaran.setBounds(114, 68, 213, 59);&#xa;field_biayaPendaftaran.setHorizontalAlignment(SwingConstants.CENTER);&#xa;field_biayaPendaftaran.setText(&quot;Total tarif : &quot; + tarif);"/>
       </AuxValues>
     </Component>
   </SubComponents>

@@ -31,16 +31,16 @@
           <Component id="labelHeader" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="buttonPoliklinik" pref="177" max="32767" attributes="0"/>
+              <Component id="buttonRP" pref="177" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="buttonPasien" pref="183" max="32767" attributes="0"/>
+              <Component id="buttonAntrian" pref="183" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="buttonDokter" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="buttonResepObat" min="-2" pref="168" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -58,11 +58,11 @@
               <Component id="labelHeader" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonPoliklinik" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="buttonPasien" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="buttonRP" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="buttonAntrian" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="buttonDokter" min="-2" pref="53" max="-2" attributes="0"/>
+              <Component id="buttonResepObat" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace pref="125" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -71,37 +71,37 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="buttonPoliklinik">
+    <Component class="javax.swing.JButton" name="buttonRP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Riwayat Pendaftaran"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPoliklinikActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRPActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonPoliklinik.setBackground(new Color(119,136,153));&#xa;buttonPoliklinik.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonPoliklinik.setForeground(SystemColor.menu);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonRP.setBackground(new Color(119,136,153));&#xa;buttonRP.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonRP.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonDokter">
+    <Component class="javax.swing.JButton" name="buttonResepObat">
       <Properties>
         <Property name="text" type="java.lang.String" value="Resep Obat"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDokterActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResepObatActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonDokter.setBackground(new Color(119,136,153));&#xa;buttonDokter.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonDokter.setForeground(SystemColor.menu);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonResepObat.setBackground(new Color(119,136,153));&#xa;buttonResepObat.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonResepObat.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonPasien">
+    <Component class="javax.swing.JButton" name="buttonAntrian">
       <Properties>
         <Property name="text" type="java.lang.String" value="Antrian Hariini"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPasienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAntrianActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonPasien.setBackground(new Color(119,136,153));&#xa;buttonPasien.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonPasien.setForeground(SystemColor.menu);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="buttonAntrian.setBackground(new Color(119,136,153));&#xa;buttonAntrian.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 18));&#xa;buttonAntrian.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelHeader">

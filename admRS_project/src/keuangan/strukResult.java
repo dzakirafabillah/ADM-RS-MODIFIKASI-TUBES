@@ -52,7 +52,8 @@ public class strukResult extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        field_biaya = new javax.swing.JLabel();
+        field_biayaPendaftaran = new javax.swing.JLabel();
+        field_biaya1 = new javax.swing.JLabel();
 
         field_bulan.setForeground(new Color(119,136,153));
         field_bulan.setBounds(114, 68, 213, 59);
@@ -80,15 +81,21 @@ public class strukResult extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "Nama Tindakan", "Tarif", "Jumlah", "Total"
+                "Nama Tindakan", "Jumlah", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        field_biaya.setForeground(new Color(119,136,153));
-        field_biaya.setBounds(114, 68, 213, 59);
-        field_biaya.setHorizontalAlignment(SwingConstants.CENTER);
-        field_biaya.setText("Total tarif : " + tarif);
+        field_biayaPendaftaran.setForeground(new Color(119,136,153));
+        field_biayaPendaftaran.setBounds(114, 68, 213, 59);
+        field_biayaPendaftaran.setHorizontalAlignment(SwingConstants.CENTER);
+        field_biayaPendaftaran.setText("Total tarif : " + tarif);
+
+        field_biayaPendaftaran.setForeground(new Color(119,136,153));
+        field_biayaPendaftaran.setBounds(114, 68, 213, 59);
+        field_biayaPendaftaran.setHorizontalAlignment(SwingConstants.CENTER);
+        field_biayaPendaftaran.setText("Total tarif : " + tarif);
+        field_biaya1.setText("Biaya Pendaftaran : 25.000");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,14 +103,20 @@ public class strukResult extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(field_biaya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(45, 45, 45))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 40, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(field_biaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(field_biayaPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -115,9 +128,11 @@ public class strukResult extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                .addComponent(field_biaya, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(field_biaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(field_biayaPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addComponent(btnBack)
                 .addGap(25, 25, 25))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +191,8 @@ public class strukResult extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel field_biaya;
+    private javax.swing.JLabel field_biaya1;
+    private javax.swing.JLabel field_biayaPendaftaran;
     private javax.swing.JLabel field_bulan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

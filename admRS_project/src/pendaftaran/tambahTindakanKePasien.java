@@ -193,7 +193,7 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_JumlahActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPendaftaranForAdmin  start = new viewPendaftaranForAdmin ();
+        listPendaftaran  start = new listPendaftaran ();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

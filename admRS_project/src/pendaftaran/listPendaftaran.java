@@ -46,6 +46,8 @@ public class listPendaftaran extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         labelHeader1 = new javax.swing.JLabel();
         btnAll = new javax.swing.JButton();
+        btnUpdDiagnosa = new javax.swing.JButton();
+        btnLihatListTdk = new javax.swing.JButton();
 
         submit.setText("submit");
         btnBack.setBackground(new Color(119,136,153));
@@ -86,7 +88,7 @@ public class listPendaftaran extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "No Registrasi", "Symptom", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" , "Diagnosa"
+                "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -109,7 +111,7 @@ public class listPendaftaran extends javax.swing.JFrame {
             }
         });
 
-        labelHeader1.setText("Search by no rekam medis");
+        labelHeader1.setText("Search by No Rekam Medis/Diagnosa");
         //labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         //labelHeader.setForeground(new Color(119,136,153));
         labelHeader1.setBounds(114, 68, 213, 59);
@@ -124,6 +126,24 @@ public class listPendaftaran extends javax.swing.JFrame {
             }
         });
 
+        btnUpdDiagnosa.setText("Update Diagnosa");
+        btnaddTindakan.setBackground(new Color(119,136,153));
+        btnaddTindakan.setForeground(SystemColor.menu);
+        btnUpdDiagnosa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdDiagnosaActionPerformed(evt);
+            }
+        });
+
+        btnLihatListTdk.setText("Daftar Tindakan Diterima");
+        btnaddTindakan.setBackground(new Color(119,136,153));
+        btnaddTindakan.setForeground(SystemColor.menu);
+        btnLihatListTdk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLihatListTdkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,33 +154,37 @@ public class listPendaftaran extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(labelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelHeader1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(field_search, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAll)
-                            .addComponent(btnSearch))))
-                .addGap(29, 29, 29))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnaddTindakan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnBack))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelHeader1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(field_search, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnAll)
+                                            .addComponent(btnSearch)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(btnaddTindakan)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLihatListTdk)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUpdDiagnosa)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelHeader)
-                .addGap(50, 50, 50)
+                .addGap(55, 55, 55)
                 .addComponent(labelHeader1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -168,10 +192,13 @@ public class listPendaftaran extends javax.swing.JFrame {
                     .addComponent(field_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnaddTindakan)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnaddTindakan)
+                    .addComponent(btnLihatListTdk)
+                    .addComponent(btnUpdDiagnosa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(28, 28, 28))
@@ -181,7 +208,7 @@ public class listPendaftaran extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewPendaftaranForAdmin  start = new viewPendaftaranForAdmin ();
+        MainMenuDokter  start = new MainMenuDokter();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -203,7 +230,7 @@ public class listPendaftaran extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "No Registrasi", "Symptom", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik", "Diagnosa"
+                "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -214,10 +241,22 @@ public class listPendaftaran extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "No Registrasi", "Symptom", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik", "Diagnosa"
+                "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
     }//GEN-LAST:event_btnAllActionPerformed
+
+    private void btnUpdDiagnosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdDiagnosaActionPerformed
+        UpdateDiagnosa start = new UpdateDiagnosa();
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnUpdDiagnosaActionPerformed
+
+    private void btnLihatListTdkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatListTdkActionPerformed
+        DaftarTindakanDiterima start = new DaftarTindakanDiterima();
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnLihatListTdkActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -260,7 +299,9 @@ public class listPendaftaran extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAll;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnLihatListTdk;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdDiagnosa;
     private javax.swing.JButton btnaddTindakan;
     private javax.swing.JTextField field_noRegis;
     private javax.swing.JTextField field_search;
