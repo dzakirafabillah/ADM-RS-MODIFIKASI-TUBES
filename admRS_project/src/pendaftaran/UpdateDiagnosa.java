@@ -149,7 +149,7 @@ public class UpdateDiagnosa extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        listPembayaran start = new listPembayaran();
+        listPendaftaran start = new listPendaftaran();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

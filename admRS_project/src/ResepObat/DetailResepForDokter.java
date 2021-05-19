@@ -186,6 +186,16 @@ public class DetailResepForDokter extends javax.swing.JFrame {
         String idResep = this.idResep;
          
         Query.insertObatKeResep(idResep, idObat, jml, unit);
+        
+        Object[][] tempp = Query.getListObatResep(idResep);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            tempp,
+            new String [] {
+                "Nama Obat", "Jumlah", "Unit", "Total Harga"
+            }
+        ));
+
+
         this.clear();
     }//GEN-LAST:event_btnSubmitActionPerformed
     

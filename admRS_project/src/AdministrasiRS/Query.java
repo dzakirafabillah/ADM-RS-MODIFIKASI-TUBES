@@ -900,15 +900,16 @@ public class Query {
     }
 
     
-     public  static Object[][] getDaftarAntrian(String idDok, String tgl){
+     public  static Object[][] getDaftarAntrian(String idDok){
       
       PreparedStatement pst = null;
       
-      String sql = "select * from RIWAYAT_PENDAFTARAN WHERE dokter_id_dokter = '" 
-                    + idDok + "' AND tgl_registrasi = '" + tgl +"'";
+      String sql = "select * from ANTRIAN WHERE dokter_id_dokter = '" 
+                    + idDok + "'";
+      System.out.println(sql);
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][4];
+      Object[][] result =  new Object[30][5];
         
         try {
             pst = con.prepareStatement(sql);
@@ -916,18 +917,18 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][4];
+            result =  new Object[size][5];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<5 ;k++){
-                    if(k-1 == 2) {
-                        result[i][k-1] = st.getString(8);
-                    }else if (k-1 == 3){
-                        result[i][k-1] = st.getString(3);
-                    }else{
-                        result[i][k-1] = st.getString(k);
+                for (int k =1; k<6 ;k++){
+                    result[i][k-1] = st.getString(k);
+                    Object[][] rp = getSearchRP(st.getString(3));
+                    if(k-1 == 4){
+                        result[i][k-1] = rp[0][1];
+                    }else if(k-1 == 3){
+                        result[i][k-1] = rp[0][6];
                     }
                 }
                 i++;
@@ -1016,7 +1017,7 @@ public class Query {
      }
      
      
-     public static Object[][] getListTindakan(String idP){
+     public static Object[][] getListTindakanDiterima(String idP){
       
       PreparedStatement pst = null;
       PreparedStatement pst2 = null;
@@ -1050,6 +1051,57 @@ public class Query {
             
             st=pst.executeQuery();
             i=0;
+            while(st.next()){
+                for (int k =1; k<4 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                String sqlNamaTindakan = "select * from TINDAKAN WHERE id_tindakan = '" + st.getString(1) +"'" ;
+                pst3 = con.prepareStatement(sqlNamaTindakan);
+
+                st3=pst3.executeQuery();
+                
+                int j = 0;
+                while(st3.next()){
+                    result[i][0] = st3.getString(2);
+                }
+                
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+     
+     
+    public static Object[][] getListTindakanDiterimaForDokter(String noReg){
+      
+      PreparedStatement pst = null;
+      PreparedStatement pst3 = null;
+      
+      ResultSet st, st3;
+      int size = 0;
+      Object[][] result =  new Object[0][0];
+      Object[][] result2 =  new Object[1][1];
+        
+        try {
+            
+            String sql = "select id_tindakan,jumlah,total_tarif from TINDAKAN_HISTORY WHERE no_registrasi = '" + noReg +"'" ;
+            pst = con.prepareStatement(sql);
+            
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][3];
+            
+            st=pst.executeQuery();
+            int i=0;
             while(st.next()){
                 for (int k =1; k<4 ;k++){
                     result[i][k-1] = st.getString(k);

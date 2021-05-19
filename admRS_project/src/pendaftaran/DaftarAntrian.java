@@ -45,8 +45,6 @@ public class DaftarAntrian extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         field_idDok = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        field_tgl = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,7 +59,7 @@ public class DaftarAntrian extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "NO REGISTRASI",  "NO ANTRI", "NAMA PASIEN","SYMPTOM"
+                "NO ANTRI", "TANGGAL","NO REGISTRASI", "NO REKAM MEDIS", "SYMPTOM"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -80,15 +78,6 @@ public class DaftarAntrian extends javax.swing.JFrame {
         field_idDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_idDokActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Tanggal");
-
-        field_tgl.setText("17-May-2021");
-        field_tgl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_tglActionPerformed(evt);
             }
         });
 
@@ -111,13 +100,9 @@ public class DaftarAntrian extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
+                        .addComponent(jLabel1)
                         .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(field_idDok, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(field_tgl))))
+                        .addComponent(field_idDok, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -138,15 +123,11 @@ public class DaftarAntrian extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(field_idDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(field_tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addComponent(btnSubmit)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -169,19 +150,14 @@ public class DaftarAntrian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_field_idDokActionPerformed
 
-    private void field_tglActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_tglActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_field_tglActionPerformed
-
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         String idDok = field_idDok.getText();
-        String tgl = field_tgl.getText();
         
-        Object[][] tempp = Query.getDaftarAntrian(idDok, tgl);
+        Object[][] tempp = Query.getDaftarAntrian(idDok);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "NO REGISTRASI",  "NO ANTRIAN", "NAMA PASIEN","SYMPTOM"
+                "NO ANTRI", "TANGGAL","NO REGISTRASI", "NOMOR REKAM MEDIS", "SYMPTOM"
             }
         ));
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -232,9 +208,7 @@ public class DaftarAntrian extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTextField field_idDok;
-    private javax.swing.JTextField field_tgl;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelHeader;

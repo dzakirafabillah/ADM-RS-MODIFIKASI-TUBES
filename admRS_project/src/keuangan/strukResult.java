@@ -76,7 +76,7 @@ public class strukResult extends javax.swing.JFrame {
             }
         });
 
-        Object[][] tempp = Query.getListTindakan(noRegis);
+        Object[][] tempp = Query.getListTindakanDiterima(noRegis);
         //Object[][] tempp = new Object[8][8];
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,

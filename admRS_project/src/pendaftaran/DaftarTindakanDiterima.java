@@ -49,7 +49,7 @@ public class DaftarTindakanDiterima extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader.setText("DaftarAntrian");
+        labelHeader.setText("DaftarTindakan Diterima");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
@@ -59,7 +59,7 @@ public class DaftarTindakanDiterima extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "NO REGISTRASI",  "NO ANTRI", "NAMA PASIEN","SYMPTOM"
+                "Nama Tindakan", "Jumlah", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -141,7 +141,7 @@ public class DaftarTindakanDiterima extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MainMenuDokter start = new MainMenuDokter();
+        listPendaftaran start = new listPendaftaran();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -153,13 +153,14 @@ public class DaftarTindakanDiterima extends javax.swing.JFrame {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         String noReg = field_noReg.getText();
         
-        Object[][] tempp = Query.getListTindakan(noReg);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            tempp,
-            new String [] {
-                 "Nama Tindakan", "Jumlah", "Total"
-            }
-        ));
+        Object[][] tempp = Query.getListTindakanDiterimaForDokter(noReg);
+            //Object[][] tempp = new Object[8][8];
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                tempp,
+                new String [] {
+                    "Nama Tindakan", "Jumlah", "Total"
+                }
+            ));
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**

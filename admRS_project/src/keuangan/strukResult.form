@@ -135,7 +135,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Object[][] tempp = Query.getListTindakan(noRegis);&#xa;//Object[][] tempp = new Object[8][8];"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Object[][] tempp = Query.getListTindakanDiterima(noRegis);&#xa;//Object[][] tempp = new Object[8][8];"/>
           </AuxValues>
         </Component>
       </SubComponents>
