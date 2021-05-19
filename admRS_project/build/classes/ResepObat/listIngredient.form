@@ -199,10 +199,9 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelHeader4" min="-2" max="-2" attributes="0"/>
                   <Component id="labelHeader3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="field_idJenisObat" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Component id="field_namaBahan" min="-2" pref="103" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnAll1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -217,15 +216,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="labelHeader2" alignment="0" pref="667" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnIngredients" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnUpdStock" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="598" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -237,25 +229,18 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelHeader2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="labelHeader4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="labelHeader3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="field_idJenisObat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_namaBahan" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAll1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="202" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnIngredients" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUpdStock" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
@@ -271,11 +256,11 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader2.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader2.setForeground(new Color(119,136,153));&#xa;labelHeader2.setBounds(114, 68, 213, 59);&#xa;labelHeader2.setHorizontalAlignment(SwingConstants.CENTER);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="field_idJenisObat">
+    <Component class="javax.swing.JTextField" name="field_namaBahan">
     </Component>
     <Component class="javax.swing.JLabel" name="labelHeader3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search by ID Jenis Obat"/>
+        <Property name="text" type="java.lang.String" value="Search by Nama Bahan"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;//labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader1.setBounds(114, 68, 213, 59);&#xa;labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);"/>
@@ -313,14 +298,14 @@
         <Component class="javax.swing.JTable" name="jTable2">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;        &quot;ID Obat&quot;, &quot;Nama Obat&quot;, &quot;Kode Obat&quot;, &quot;Stock Fisik&quot;, &quot;Stock Available&quot;, &quot;Harga&quot;, &quot;ID Jenis Obat&quot;&#xa;    }&#xa;)" type="code"/>
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tempp,&#xa;    new String [] {&#xa;        &quot;ID Bahan&quot;, &quot;Nama Bahan&quot;&#xa;    }&#xa;)" type="code"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Object[][] tempp = Query.getListObat();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Object[][] tempp = Query.getListBahan();"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -334,36 +319,6 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack1.setBackground(new Color(119,136,153));&#xa;btnBack1.setForeground(SystemColor.menu);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnIngredients">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Kelola Komposisi"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngredientsActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnIngredients.setBackground(new Color(119,136,153));&#xa;btnIngredients.setForeground(SystemColor.menu);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelHeader4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cari Obat Setara"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;//labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader1.setBounds(114, 68, 213, 59);&#xa;labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnUpdStock">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update Stock Obat"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdStockActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnIngredients.setBackground(new Color(119,136,153));&#xa;btnIngredients.setForeground(SystemColor.menu);"/>
       </AuxValues>
     </Component>
   </SubComponents>

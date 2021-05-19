@@ -3,43 +3,60 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/listPendaftaran.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/synchronizedTest/Antrian.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/DetailResepForDokter.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/dokter/inputDokter.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/strukResult.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuPasien.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/inputObat.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/dokter/listDokterr.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/beforeSynchronized/Main.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/listRawatInap.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuKeuangan.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/obatID.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/viewPoliklinik.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/listObat.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/beforeSynchronized/Antrian.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/DaftarAntrian.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/DaftarTindakanDiterima.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/tambahTindakan.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/viewObat.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pasien/inputPasien.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/listResepForDokter.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/dokter/viewDokter.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/listResep.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/tambahTindakanKePasien.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuDokter.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/viewKeuanganTindakan.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/UpdateDiagnosa.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/ListPoliklinik.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/IDResepForUpd.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/listPendaftaranForAdmin.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/jmlPendaftaran.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuApoteker.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/updateStock.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/DaftarInapSkrg.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/noRegis.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pasien/ListPasien.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/strukResepResult.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/listPembayaran.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/inputPoliklinik.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/viewPendaftaranForAdmin.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/Query.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/inputPendaftaran.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/synchronizedTest/Main.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/strukPembayaran.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/jmlPendaftaranResult.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/listRawatJalan.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/updateRP.java</file>
-            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuAdmin.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/strukResep.java</file>
             <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/viewKeuangan.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/listPendaftaran.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/strukResult.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuPasien.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/IDPembayaran.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/inputObat.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/dokter/listDokterr.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/viewPoliklinik.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/listObat.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pasien/inputPasien.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/listResep.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuDokter.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/keuangan/viewKeuanganTindakan.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/synchronizedTest/TambahThread.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/ResepObat/IDForDetailResep.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pasien/ListPasien.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/poliklinik/inputPoliklinik.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/pendaftaran/inputPendaftaran.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/AdministrasiRS/MainMenuAdmin.java</file>
+            <file>file:/D:/ADM-RS-MODIFIKASI-TUBES/admRS_project/src/beforeSynchronized/TambahThread.java</file>
         </group>
     </open-files>
 </project-private>

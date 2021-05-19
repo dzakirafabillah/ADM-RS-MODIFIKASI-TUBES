@@ -15,6 +15,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import synchronizedTest.Antrian;
+import synchronizedTest.TambahThread;
 /**
  *
  * @author HP
@@ -208,6 +210,28 @@ public class Query {
     
     /****************************** DOKTER ******************************/
     /************************************************************************/
+    
+    public static String[] getDokter(String idPoli){
+           
+      PreparedStatement pst = null;
+      String[] arrPoliklinik = new String[100];
+      String sql = "select * from DOKTER WHERE POLIKLINIK_ID_POLIKLINIK = '"+idPoli+"'";
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            int i = 0; 
+            while(st.next()){
+                arrPoliklinik[i] = st.getString(1);
+                i++;
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrPoliklinik;
+    }
     
     public  static String addDokter(String Nama, String NoIzinPraktek, 
             String PhoneNumber, String Spesialisasi, String Gaji, 
@@ -572,45 +596,6 @@ public class Query {
      
     /************************ RIWAYAT PENDAFTARAN ***********************/
     /************************************************************************/
-    public static String addDaftar(String symptom, String diagnosa, String tipeRawat, String norek, String IdPoliklinik){
-         String sym = symptom;
-         String diag = diagnosa;
-         String tipe = tipeRawat;
-//         String tgl = tglRegis;
-         String no = norek;
-         String Id = IdPoliklinik;
-         
-         CallableStatement stmt = null;
-         Scanner input = new Scanner(System.in);
-         String hasil = "Record Save Success::";
-         
-         try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call RIWAYAT_PENDAFTARAN_INSERT(?,?,?,?,?)}");
-			stmt.setString(1, sym);
-                        stmt.setString(2, diag);
-                        stmt.setString(3, tipe);
-                        stmt.setString(4, no);
-                        stmt.setString(5, Id);
-                        
-                        stmt.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Pendaftaran berhasil !");
-		}catch(Exception e){
-//			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Pendaftaran gagal dilakukan!");
-		}finally{
-			try {
-				stmt.close();
-	//			con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-		}
-         
-         return hasil;
-     }
-    
     public static boolean searchNoRegis(String noReg){
       
       PreparedStatement pst = null;
@@ -1406,6 +1391,79 @@ public class Query {
         
     }
     
+    public static Object[][] getListBahan(){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from INGREDIENT";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[100][2];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][2];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<3 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    public static Object[][] getListSearchBahan(String namaBahan){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from INGREDIENT WHERE NAMA_BAHAN = '" + namaBahan + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[30][2];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][2];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<3 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+         
+        }  
+        return result;
+        
+    }
+    
+    
     public static Object[][] getListSearchObat(String idJenis){
       
       PreparedStatement pst = null;
@@ -1501,6 +1559,42 @@ public class Query {
         
     }
 
+    public static boolean searchIdBahan(String idBahan){
+      
+      PreparedStatement pst = null;
+      
+      String sql = "select * from INGREDIENT WHERE id_bahan = '" + idBahan + "'";
+      ResultSet st;
+      int size = 0;
+      Object[][] result =  new Object[0][2];
+        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            while(st.next()){
+                size++;
+            }
+            result =  new Object[size][2];
+            
+            st=pst.executeQuery();
+            int i=0;
+            while(st.next()){
+                for (int k =1; k<3 ;k++){
+                    result[i][k-1] = st.getString(k);
+                }
+                i++;
+            }
+            
+            pst.close();
+            System.out.println(result.length == 0);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return (result.length == 0);
+        
+    }
+    
     public static Object[][] getListResep(){
       
       PreparedStatement pst = null;
@@ -1748,15 +1842,8 @@ public class Query {
                             stmt.setString(2, tIdObat);
                             stmt.setString(3, tUnit);
 
-
-                            //register the OUT parameter before calling the stored procedure
-                            //stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
-                            //stmt.registerOutParameter(1, java.sql.Types.DATE);
-
                             stmt.executeUpdate();
 
-                            //read the OUT parameter now
-                            //String result = stmt.getString(3);
                             JOptionPane.showMessageDialog(null, "Insert Obat Berhasil Dilakukan");
 
                     }catch(Exception e){
@@ -1773,7 +1860,142 @@ public class Query {
                     }
 
          }
+    
+    public static void updStockObat(String idObat, String tStockFisik, String tStockAvail){
+             int stockFisik = Integer.parseInt(tStockFisik);
+             int stockAvail = Integer.parseInt(tStockAvail);
 
+             CallableStatement stmt = null;
+             Scanner input = new Scanner(System.in);
+
+             try{
+                            con = DBConnection.getConnection();
+                            stmt = con.prepareCall("{call STOCK_OBAT_UPDATE(?,"+stockFisik+","+stockAvail+")}");
+
+                            stmt.setString(1, idObat);
+
+                            //register the OUT parameter before calling the stored procedure
+                            //stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+                            //stmt.registerOutParameter(1, java.sql.Types.DATE);
+
+                            stmt.executeUpdate();
+
+                            //read the OUT parameter now
+                            //String result = stmt.getString(3);
+                            JOptionPane.showMessageDialog(null, "Upadate Stock Obat Berhasil Dilakukan");
+
+                    }catch(Exception e){
+    			e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Upadate Stock Gagal Dilakukan");
+                    }finally{
+                            try {
+                                    stmt.close();
+                                   // con.close();
+                                    input.close();
+                            } catch (SQLException e) {
+    //				e.printStackTrace();
+                            }
+                    }
+
+         }
+    
+    
+     public static String addDataKandunganObat(String idObat, String idBahan){
+         CallableStatement stmt = null;
+         Scanner input = new Scanner(System.in);
+         String hasil = "Resep Record Save Success::";
+         try{
+			con = DBConnection.getConnection();
+			stmt = con.prepareCall("{call KANDUNGAN_OBAT_INSERT(?,?)}");
+			stmt.setString(1, idObat);
+			stmt.setString(2, idBahan);
+                        stmt.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Data Komposisi berhasil ditambahkan !");
+		}catch(Exception e){
+//			e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Data Komposisi gagal ditambahkan !");
+		}finally{
+			try {
+				stmt.close();
+	//			con.close();
+				input.close();
+			} catch (SQLException e) {
+//				e.printStackTrace();
+			}
+		}
+         
+         return hasil;
+     }
+    
+    
+    /*ANTRIAN*/
+    
+    public static int getLastQueueNumber(String idDok,String tgl){
+        PreparedStatement pst = null;
+        String hasil = "0";
+        String sql = "SELECT GET_LAST_QUEUE_NUMBER('"+idDok+"', '"+tgl+"')FROM DUAL";
+        ResultSet st;
+
+          try {
+              pst = con.prepareStatement(sql);
+              st=pst.executeQuery();
+
+              while(st.next()){
+                 hasil = "\n"+st.getString(1);
+              }
+              pst.close();
+          } catch (SQLException ex) {
+              Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          
+          return Integer.parseInt(hasil.replace("\n",""));
+      }
+
+    public static String addDaftar(String symptom, String diagnosa, 
+                  String tipeRawat, String norek, String IdPoliklinik, String IdDok){
+         String sym = symptom;
+         String diag = diagnosa;
+         String tipe = tipeRawat;
+         String no = norek;
+         String Id = IdPoliklinik;
+         
+         /*Mengatur Nomor Antrian*/
+         Antrian antrian = new Antrian(IdDok, "17-05-2021");
+        
+         new Thread(new TambahThread(antrian)).start();
+         int noAntri = antrian.get_no_antri(); 
+         
+         CallableStatement stmt = null;
+         Scanner input = new Scanner(System.in);
+         String hasil = "Record Save Success::";
+         
+         try{
+			con = DBConnection.getConnection();
+			stmt = con.prepareCall("{call RIWAYAT_PENDAFTARAN_INSERT("+noAntri+",?,?,?,?,?)}");
+                        stmt.setString(1, sym);
+                        stmt.setString(2, diag);
+                        stmt.setString(3, tipe);
+                        stmt.setString(4, no);
+                        stmt.setString(5, Id);
+                        
+                        stmt.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Pendaftaran berhasil !");
+		}catch(Exception e){
+//			e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Pendaftaran gagal dilakukan!");
+		}finally{
+			try {
+				stmt.close();
+	//			con.close();
+				input.close();
+			} catch (SQLException e) {
+//				e.printStackTrace();
+			}
+		}
+         
+         return hasil;
+     }
 }
 
 

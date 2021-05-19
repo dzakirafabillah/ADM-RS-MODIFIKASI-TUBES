@@ -46,6 +46,10 @@ public class obatID extends javax.swing.JFrame {
         btnBack1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        idDok1 = new javax.swing.JLabel();
+        field_idBahan = new javax.swing.JTextField();
+        btnaddIngredient = new javax.swing.JButton();
+        idDok2 = new javax.swing.JLabel();
 
         labelHeader3.setText("Update Dokter");
 
@@ -99,6 +103,19 @@ public class obatID extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        idDok1.setText("ID Bahan");
+
+        btnaddIngredient.setText("Tambahkan");
+        submit.setBackground(new Color(119,136,153));
+        submit.setForeground(SystemColor.menu);
+        btnaddIngredient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddIngredientActionPerformed(evt);
+            }
+        });
+
+        idDok2.setText("Menambahkan Data Komposisi Obat");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,8 +131,17 @@ public class obatID extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(btnBack1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(idDok2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnaddIngredient)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(idDok1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(field_idBahan, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -136,9 +162,17 @@ public class obatID extends javax.swing.JFrame {
                 .addComponent(labelHeader4)
                 .addGap(97, 97, 97)
                 .addComponent(field_idObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(idDok2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idDok1)
+                    .addComponent(field_idBahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnaddIngredient)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(btnBack1)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +183,7 @@ public class obatID extends javax.swing.JFrame {
                     .addComponent(idDok)
                     .addGap(31, 31, 31)
                     .addComponent(submit)
-                    .addContainerGap(285, Short.MAX_VALUE)))
+                    .addContainerGap(404, Short.MAX_VALUE)))
         );
 
         pack();
@@ -160,15 +194,11 @@ public class obatID extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Obat dengan ID " + field_idObat.getText() + " tidak ditemukan");
         }else{
            jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String idObat = field_idObat.getText();
-            String[] strings = Query.getIngredients(idObat);
-            //String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-});
-//            updateDokter start = new updateDokter(field_idObat.getText());
-//            start.run(field_idObat.getText());
-//            this.setVisible(false);   
+                String idObat = field_idObat.getText();
+                String[] strings = Query.getIngredients(idObat);
+                public int getSize() { return strings.length; }
+                public String getElementAt(int i) { return strings[i]; }
+           });   
         }
     }//GEN-LAST:event_submitActionPerformed
 
@@ -181,6 +211,22 @@ public class obatID extends javax.swing.JFrame {
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBack1ActionPerformed
+
+    private void btnaddIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddIngredientActionPerformed
+        String idObat = field_idObat.getText();
+        String idBahan = field_idBahan.getText();
+        if(Query.searchIdObat(idObat) && Query.searchIdBahan(idBahan) ){
+            JOptionPane.showMessageDialog(null, "salah satu ID tidak valid");
+        }else{
+            Query.addDataKandunganObat(idObat,idBahan);
+            jList1.setModel(new javax.swing.AbstractListModel<String>() {
+                String idObat = field_idObat.getText();
+                String[] strings = Query.getIngredients(idObat);
+                public int getSize() { return strings.length; }
+                public String getElementAt(int i) { return strings[i]; }
+           }); 
+        }
+    }//GEN-LAST:event_btnaddIngredientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,8 +274,12 @@ public class obatID extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnaddIngredient;
+    private javax.swing.JTextField field_idBahan;
     private javax.swing.JTextField field_idObat;
     private javax.swing.JLabel idDok;
+    private javax.swing.JLabel idDok1;
+    private javax.swing.JLabel idDok2;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelHeader3;

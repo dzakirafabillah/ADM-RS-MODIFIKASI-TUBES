@@ -29,13 +29,13 @@ import java.lang.*;
  *
  * @author Putri Syalwa
  */
-public class listObat extends javax.swing.JFrame {
+public class listIngredient extends javax.swing.JFrame {
 
     static Connection con = DBConnection.getConnection();
     /**
      * Creates new form listDokterrrr
      */
-    public listObat() {
+    public listIngredient() {
         initComponents();
     }
 
@@ -60,16 +60,13 @@ public class listObat extends javax.swing.JFrame {
         labelHeader1 = new javax.swing.JLabel();
         btnAll = new javax.swing.JButton();
         labelHeader2 = new javax.swing.JLabel();
-        field_idJenisObat = new javax.swing.JTextField();
+        field_namaBahan = new javax.swing.JTextField();
         labelHeader3 = new javax.swing.JLabel();
         btnSearch1 = new javax.swing.JButton();
         btnAll1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnBack1 = new javax.swing.JButton();
-        btnIngredients = new javax.swing.JButton();
-        labelHeader4 = new javax.swing.JLabel();
-        btnUpdStock = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,7 +202,7 @@ public class listObat extends javax.swing.JFrame {
         labelHeader2.setBounds(114, 68, 213, 59);
         labelHeader2.setHorizontalAlignment(SwingConstants.CENTER);
 
-        labelHeader3.setText("Search by ID Jenis Obat");
+        labelHeader3.setText("Search by Nama Bahan");
         //labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         //labelHeader.setForeground(new Color(119,136,153));
         labelHeader1.setBounds(114, 68, 213, 59);
@@ -229,11 +226,11 @@ public class listObat extends javax.swing.JFrame {
             }
         });
 
-        Object[][] tempp = Query.getListObat();
+        Object[][] tempp = Query.getListBahan();
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Bahan", "Nama Bahan"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -247,30 +244,6 @@ public class listObat extends javax.swing.JFrame {
             }
         });
 
-        btnIngredients.setText("Kelola Komposisi");
-        btnIngredients.setBackground(new Color(119,136,153));
-        btnIngredients.setForeground(SystemColor.menu);
-        btnIngredients.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngredientsActionPerformed(evt);
-            }
-        });
-
-        labelHeader4.setText("Cari Obat Setara");
-        //labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
-        //labelHeader.setForeground(new Color(119,136,153));
-        labelHeader1.setBounds(114, 68, 213, 59);
-        labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);
-
-        btnUpdStock.setText("Update Stock Obat");
-        btnIngredients.setBackground(new Color(119,136,153));
-        btnIngredients.setForeground(SystemColor.menu);
-        btnUpdStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdStockActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,10 +252,9 @@ public class listObat extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelHeader4)
                     .addComponent(labelHeader3)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(field_idJenisObat, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(field_namaBahan, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAll1)
@@ -293,13 +265,8 @@ public class listObat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnIngredients)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnUpdStock)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnBack1)
+                        .addGap(0, 598, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -307,23 +274,17 @@ public class listObat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelHeader2)
-                .addGap(30, 30, 30)
-                .addComponent(labelHeader4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
                 .addComponent(labelHeader3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearch1)
-                    .addComponent(field_idJenisObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(field_namaBahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAll1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIngredients)
-                    .addComponent(btnUpdStock))
-                .addGap(32, 32, 32)
+                .addGap(66, 66, 66)
                 .addComponent(btnBack1)
                 .addGap(28, 28, 28))
         );
@@ -346,7 +307,7 @@ public class listObat extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStruckActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String idJenis =field_idJenisObat.getText();
+        String idJenis =field_namaBahan.getText();
         Object[][] tempp = Query.getListSearchObat(idJenis);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -369,24 +330,24 @@ public class listObat extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAllActionPerformed
 
     private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
-        String idJenis =field_idJenisObat.getText();
-        Object[][] tempp = Query.getListSearchObat(idJenis);
+        String namaBahan =field_namaBahan.getText();
+        Object[][] tempp = Query.getListSearchBahan(namaBahan);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Bahan", "Nama Bahan"
             }
         ));
     }//GEN-LAST:event_btnSearch1ActionPerformed
 
     private void btnAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAll1ActionPerformed
-        Object[][] tempp = Query.getListObat();
+        Object[][] tempp = Query.getListBahan();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Obat", "Nama Obat"
             }
         ));
     }//GEN-LAST:event_btnAll1ActionPerformed
@@ -396,18 +357,6 @@ public class listObat extends javax.swing.JFrame {
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBack1ActionPerformed
-
-    private void btnIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngredientsActionPerformed
-        obatID start = new obatID();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnIngredientsActionPerformed
-
-    private void btnUpdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdStockActionPerformed
-        updateStock start = new updateStock();
-        start.run();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnUpdStockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,14 +375,18 @@ public class listObat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(listObat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listIngredient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(listObat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listIngredient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(listObat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listIngredient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(listObat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listIngredient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -441,13 +394,13 @@ public class listObat extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new listObat().setVisible(true);
+            new listIngredient().setVisible(true);
         });
         
     }
     
     public void run() {
-        listObat calcu = new listObat();
+        listIngredient calcu = new listIngredient();
         calcu.getContentPane().setBackground(new Color(204,229,255));
         calcu.setVisible(true);
     }
@@ -457,13 +410,11 @@ public class listObat extends javax.swing.JFrame {
     private javax.swing.JButton btnAll1;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnIngredients;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnStruck;
-    private javax.swing.JButton btnUpdStock;
     private javax.swing.JButton btnaddTindakan;
-    private javax.swing.JTextField field_idJenisObat;
+    private javax.swing.JTextField field_namaBahan;
     private javax.swing.JTextField field_search;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -474,6 +425,5 @@ public class listObat extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader1;
     private javax.swing.JLabel labelHeader2;
     private javax.swing.JLabel labelHeader3;
-    private javax.swing.JLabel labelHeader4;
     // End of variables declaration//GEN-END:variables
 }

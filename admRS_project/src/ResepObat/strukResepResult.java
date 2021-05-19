@@ -61,7 +61,7 @@ public class strukResepResult extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader.setText("Struk Pembayaran");
+        labelHeader.setText("Struk Resep");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);

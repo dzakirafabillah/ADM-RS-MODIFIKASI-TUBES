@@ -135,7 +135,7 @@ public class IDResepForUpd extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        listPembayaran start = new listPembayaran();
+        listResep start = new listResep();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

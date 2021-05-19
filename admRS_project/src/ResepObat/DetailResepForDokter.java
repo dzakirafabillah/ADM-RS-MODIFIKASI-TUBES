@@ -68,7 +68,7 @@ public class DetailResepForDokter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader.setText("Struk Pembayaran");
+        labelHeader.setText("Detail Resep");
         labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader.setForeground(new Color(119,136,153));
         labelHeader.setBounds(114, 68, 213, 59);
@@ -174,7 +174,7 @@ public class DetailResepForDokter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        IDForDetailResep start = new  IDForDetailResep();
+        listResepForDokter start = new  listResepForDokter();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

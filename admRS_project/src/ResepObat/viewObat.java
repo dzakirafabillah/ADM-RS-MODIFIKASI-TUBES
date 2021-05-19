@@ -33,6 +33,7 @@ public class viewObat extends javax.swing.JFrame {
         btnListObat = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddObat = new javax.swing.JButton();
+        btnListIngredient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrasi RS DPR");
@@ -72,21 +73,35 @@ public class viewObat extends javax.swing.JFrame {
             }
         });
 
+        btnListIngredient.setText("Kamus Data Komposisi Obat");
+        btnListObat.setBackground(new Color(119,136,153));
+        btnListObat.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        btnListObat.setForeground(SystemColor.menu);
+        btnListIngredient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListIngredientActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(labelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(btnAddObat, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnListObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addComponent(btnBack)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnAddObat, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnListObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnBack)))
+                        .addGap(151, 151, 151)
+                        .addComponent(btnListIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,7 +113,9 @@ public class viewObat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListObat, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddObat, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnListIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(29, 29, 29))
         );
@@ -125,6 +142,12 @@ public class viewObat extends javax.swing.JFrame {
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnAddObatActionPerformed
+
+    private void btnListIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListIngredientActionPerformed
+        listIngredient start = new listIngredient();
+        start.run();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnListIngredientActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -170,6 +193,7 @@ public class viewObat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddObat;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnListIngredient;
     private javax.swing.JButton btnListObat;
     private javax.swing.JLabel labelHeader;
     // End of variables declaration//GEN-END:variables

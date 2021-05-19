@@ -85,6 +85,7 @@ public class DaftarAntrian extends javax.swing.JFrame {
 
         jLabel3.setText("Tanggal");
 
+        field_tgl.setText("17-May-2021");
         field_tgl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_tglActionPerformed(evt);
