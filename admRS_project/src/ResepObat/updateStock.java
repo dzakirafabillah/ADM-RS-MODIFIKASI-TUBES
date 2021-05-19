@@ -173,7 +173,7 @@ public class updateStock extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        viewObat start = new  viewObat();
+        listObat start = new  listObat();
         start.run();
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed

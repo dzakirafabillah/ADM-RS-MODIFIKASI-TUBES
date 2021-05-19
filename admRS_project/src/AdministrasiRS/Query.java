@@ -1464,6 +1464,35 @@ public class Query {
         
     }
     
+    public static void addNewIngredient(String namaBahan){
+             CallableStatement stmt = null;
+             Scanner input = new Scanner(System.in);
+
+             try{
+                            con = DBConnection.getConnection();
+                            stmt = con.prepareCall("{call INGREDIENT_INSERT(?)}");
+
+                            stmt.setString(1, namaBahan);
+
+                            stmt.executeUpdate();
+
+                            JOptionPane.showMessageDialog(null, "Insert Data Bahan Berhasil Dilakukan");
+
+                    }catch(Exception e){
+    			e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Insert Data Bahan Gagal Dilakukan");
+                    }finally{
+                            try {
+                                    stmt.close();
+                                   // con.close();
+                                    input.close();
+                            } catch (SQLException e) {
+    //				e.printStackTrace();
+                            }
+                    }
+
+         }
+    
     public static Object[][] getListBahan(){
       
       PreparedStatement pst = null;

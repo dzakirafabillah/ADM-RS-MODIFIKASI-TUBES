@@ -66,7 +66,10 @@ public class listIngredient extends javax.swing.JFrame {
         btnAll1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        btnBack1 = new javax.swing.JButton();
+        btnAddIngredient = new javax.swing.JButton();
+        btnBack2 = new javax.swing.JButton();
+        field_newBahan = new javax.swing.JTextField();
+        labelHeader4 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,7 +199,7 @@ public class listIngredient extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader2.setText("List Obat");
+        labelHeader2.setText("Kamus Data Bahan Komposisi Obat");
         labelHeader2.setFont(new Font("Century Gothic", Font.BOLD, 28));
         labelHeader2.setForeground(new Color(119,136,153));
         labelHeader2.setBounds(114, 68, 213, 59);
@@ -235,14 +238,29 @@ public class listIngredient extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        btnBack1.setText("Kembali");
-        btnBack1.setBackground(new Color(119,136,153));
-        btnBack1.setForeground(SystemColor.menu);
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddIngredient.setText("Tambah Bahan");
+        btnAddIngredient.setBackground(new Color(119,136,153));
+        btnAddIngredient.setForeground(SystemColor.menu);
+        btnAddIngredient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
+                btnAddIngredientActionPerformed(evt);
             }
         });
+
+        btnBack2.setText("Kembali");
+        btnAddIngredient.setBackground(new Color(119,136,153));
+        btnAddIngredient.setForeground(SystemColor.menu);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+
+        labelHeader4.setText("Masukan Nama Bahan");
+        //labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
+        //labelHeader.setForeground(new Color(119,136,153));
+        labelHeader1.setBounds(114, 68, 213, 59);
+        labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,9 +283,20 @@ public class listIngredient extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack1)
-                        .addGap(0, 598, Short.MAX_VALUE)))
+                        .addComponent(labelHeader4)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(btnAddIngredient))
+                            .addComponent(field_newBahan, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(btnBack2)
+                    .addContainerGap(598, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,10 +312,19 @@ public class listIngredient extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAll1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                .addGap(66, 66, 66)
-                .addComponent(btnBack1)
-                .addGap(28, 28, 28))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(field_newBahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelHeader4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddIngredient)
+                .addContainerGap(79, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(492, Short.MAX_VALUE)
+                    .addComponent(btnBack2)
+                    .addGap(18, 18, 18)))
         );
 
         pack();
@@ -352,11 +390,24 @@ public class listIngredient extends javax.swing.JFrame {
         ));
     }//GEN-LAST:event_btnAll1ActionPerformed
 
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+    private void btnAddIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddIngredientActionPerformed
+        String namaBahan = field_newBahan.getText();
+        Query.addNewIngredient(namaBahan);
+        Object[][] tempp = Query.getListBahan();
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            tempp,
+            new String [] {
+                "ID Bahan", "Nama Bahan"
+            }
+        ));
+        
+    }//GEN-LAST:event_btnAddIngredientActionPerformed
+
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
         viewObat start = new viewObat();
         start.run();
         this.setVisible(false);
-    }//GEN-LAST:event_btnBack1ActionPerformed
+    }//GEN-LAST:event_btnBack2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,15 +457,17 @@ public class listIngredient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddIngredient;
     private javax.swing.JButton btnAll;
     private javax.swing.JButton btnAll1;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnStruck;
     private javax.swing.JButton btnaddTindakan;
     private javax.swing.JTextField field_namaBahan;
+    private javax.swing.JTextField field_newBahan;
     private javax.swing.JTextField field_search;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -425,5 +478,6 @@ public class listIngredient extends javax.swing.JFrame {
     private javax.swing.JLabel labelHeader1;
     private javax.swing.JLabel labelHeader2;
     private javax.swing.JLabel labelHeader3;
+    private javax.swing.JLabel labelHeader4;
     // End of variables declaration//GEN-END:variables
 }

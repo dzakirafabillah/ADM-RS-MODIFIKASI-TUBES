@@ -233,7 +233,7 @@ public class listObat extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Obat",  "Kode Obat", "Nama Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -375,7 +375,7 @@ public class listObat extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Obat",  "Kode Obat","Nama Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
             }
         ));
     }//GEN-LAST:event_btnSearch1ActionPerformed
@@ -386,7 +386,7 @@ public class listObat extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Obat", "Nama Obat", "Kode Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
+                "ID Obat", "Kode Obat", "Nama Obat", "Stock Fisik", "Stock Available", "Harga", "ID Jenis Obat"
             }
         ));
     }//GEN-LAST:event_btnAll1ActionPerformed

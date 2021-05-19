@@ -214,13 +214,28 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelHeader2" alignment="0" pref="667" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="598" max="32767" attributes="0"/>
+                  <Component id="labelHeader2" pref="667" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelHeader4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="btnAddIngredient" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="field_newBahan" min="-2" pref="115" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="btnBack2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="598" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -239,10 +254,22 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAll1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="202" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-              <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="224" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="field_newBahan" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelHeader4" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnAddIngredient" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="79" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="492" max="32767" attributes="0"/>
+                  <Component id="btnBack2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -250,7 +277,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="labelHeader2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List Obat"/>
+        <Property name="text" type="java.lang.String" value="Kamus Data Bahan Komposisi Obat"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="labelHeader2.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;labelHeader2.setForeground(new Color(119,136,153));&#xa;labelHeader2.setBounds(114, 68, 213, 59);&#xa;labelHeader2.setHorizontalAlignment(SwingConstants.CENTER);"/>
@@ -310,15 +337,36 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnBack1">
+    <Component class="javax.swing.JButton" name="btnAddIngredient">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tambah Bahan"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddIngredientActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnAddIngredient.setBackground(new Color(119,136,153));&#xa;btnAddIngredient.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kembali"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBack1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBack2ActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnBack1.setBackground(new Color(119,136,153));&#xa;btnBack1.setForeground(SystemColor.menu);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnAddIngredient.setBackground(new Color(119,136,153));&#xa;btnAddIngredient.setForeground(SystemColor.menu);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_newBahan">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelHeader4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Masukan Nama Bahan"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//labelHeader.setFont(new Font(&quot;Century Gothic&quot;, Font.BOLD, 28));&#xa;//labelHeader.setForeground(new Color(119,136,153));&#xa;labelHeader1.setBounds(114, 68, 213, 59);&#xa;labelHeader1.setHorizontalAlignment(SwingConstants.CENTER);"/>
       </AuxValues>
     </Component>
   </SubComponents>
