@@ -563,23 +563,23 @@ public class Query {
         
     }
      
-    public static String addPasien(String Nama, String Gender, String TglLahir){
-         String Name = Nama;
-         String JenisKelamin = Gender ;
-         String  TLahir = TglLahir;
-         
+    public static String addPasien(String Nama, String Gender, String TglLahir, String Alamat){
          CallableStatement stmt = null;
          Scanner input = new Scanner(System.in);
          String hasil = "Pasien Record Save Success::";
          try{
 			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call PASIEN_INSERT(?,?,?)}");
-			stmt.setString(1, Name);
-			stmt.setString(2, JenisKelamin);
-			stmt.setString(3, TLahir);
+			stmt = con.prepareCall("{call PASIEN_INSERT(?,?,?,?)}");
+			stmt.setString(1, Nama);
+			stmt.setString(2, Gender);
+			stmt.setString(3, TglLahir);
+                        stmt.setString(4, Alamat);
                         stmt.executeUpdate();
 			
-			JOptionPane.showMessageDialog(null, "Data Pasien berhasil ditambahkan !");
+                        
+                        String noRM = getNomorRekamMedis(Nama, TglLahir);
+                        
+			JOptionPane.showMessageDialog(null, "Nomor Rekam Medis anda : "+noRM);
 		}catch(Exception e){
 //			e.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Data Pasien gagal ditambahkan !");
@@ -597,7 +597,27 @@ public class Query {
      }
      
      
-     
+     public static String getNomorRekamMedis(String nama, String tglLahir){
+           
+      PreparedStatement pst = null;
+      String[] arrPasien = new String[5];
+      String sql = "select * from PASIEN WHERE nama_pasien = '" + nama + "' AND tgl_lahir = '"+tglLahir+"'" ;
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            int i = 0; 
+            while(st.next()){
+                arrPasien[i] = st.getString(1);
+                i++;
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrPasien[0];
+    }
     /************************ RIWAYAT PENDAFTARAN ***********************/
     /************************************************************************/
     public static boolean searchNoRegis(String noReg){
@@ -1955,11 +1975,6 @@ public class Query {
 
     public static String addDaftar(String symptom, String diagnosa, 
                   String tipeRawat, String norek, String IdPoliklinik, String IdDok){
-         String sym = symptom;
-         String diag = diagnosa;
-         String tipe = tipeRawat;
-         String no = norek;
-         String Id = IdPoliklinik;
          
          /*Mengatur Nomor Antrian*/
          Antrian antrian = new Antrian(IdDok, "17-05-2021");
@@ -1973,17 +1988,18 @@ public class Query {
          
          try{
 			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call RIWAYAT_PENDAFTARAN_INSERT("+noAntri+",?,?,?,?,?)}");
-                        stmt.setString(1, sym);
-                        stmt.setString(2, diag);
-                        stmt.setString(3, tipe);
-                        stmt.setString(4, no);
-                        stmt.setString(5, Id);
+			stmt = con.prepareCall("{call RIWAYAT_PENDAFTARAN_INSERT("+noAntri+",?,?,?,?,?,?)}");
+                        stmt.setString(1, symptom);
+                        stmt.setString(2, diagnosa);
+                        stmt.setString(3, tipeRawat);
+                        stmt.setString(4, norek);
+                        stmt.setString(5, IdPoliklinik);
+                        stmt.setString(6, IdDok);
                         
                         stmt.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Pendaftaran berhasil !");
 		}catch(Exception e){
-//			e.printStackTrace();
+			e.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Pendaftaran gagal dilakukan!");
 		}finally{
 			try {
@@ -1991,7 +2007,7 @@ public class Query {
 	//			con.close();
 				input.close();
 			} catch (SQLException e) {
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
          
