@@ -113,7 +113,7 @@ public class jmlPendaftaran extends javax.swing.JFrame {
         labelTahun.setText("Poliklinik");
 
         String[] polList = new String[100];
-        polList = Query.getPoliklinik();
+        polList = Query.getPoliklinikName();
         for (int j = 0; j < 100 ; j++) {
             if (polList[j] != null){
                 choicePoliklinik.addItem(polList[j]);
@@ -191,7 +191,7 @@ public class jmlPendaftaran extends javax.swing.JFrame {
         String aTahun = choiceTahun.getSelectedItem();
                 this.setVisible(false);
 //        System.out.println(poliklinik.textProcedure(aNama, aBulan, aTahun));
-        String jml = Query.textProcedure(aNama, aBulan, aTahun);
+        String jml = Query.getJmlPendaftaran(aNama, aBulan, aTahun);
         start.run(jml, aNama, aBulan, aTahun);
 
     }//GEN-LAST:event_submitActionPerformed

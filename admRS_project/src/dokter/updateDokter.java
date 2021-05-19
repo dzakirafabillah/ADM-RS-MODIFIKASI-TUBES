@@ -31,9 +31,13 @@ public class updateDokter extends javax.swing.JFrame {
         initComponents();
         field_namaDok.setText((dokter[0][1]).toString());
         field_noPrak.setText((dokter[0][2]).toString());
-        field_noHP.setText((dokter[0][3]).toString());
-        field_spesialis.setText((dokter[0][4]).toString());
-        field_gajiDok.setText((dokter[0][5]).toString());
+        field_noHP.setText((dokter[0][4]).toString());
+        field_spesialis.setText((dokter[0][5]).toString());
+        field_gajiDok.setText((dokter[0][8]).toString());
+        if(dokter[0][7] != null){
+            field_alamat.setText((dokter[0][7]).toString());
+        }
+        
     }
 
     /**
@@ -69,6 +73,8 @@ public class updateDokter extends javax.swing.JFrame {
         field_noHP = new javax.swing.JTextField();
         idPoli = new javax.swing.JLabel();
         choicePoliklinik = new java.awt.Choice();
+        gajiDok1 = new javax.swing.JLabel();
+        field_alamat = new javax.swing.JTextField();
 
         labelHeader1.setText("Search by no rekam medis");
         //labelHeader.setFont(new Font("Century Gothic", Font.BOLD, 28));
@@ -191,6 +197,10 @@ public class updateDokter extends javax.swing.JFrame {
             }
         }
 
+        gajiDok1.setText("Alamat");
+        namaDok.setForeground(new Color(119,136,153));
+        namaDok.setBounds(114, 68, 213, 59);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,7 +212,6 @@ public class updateDokter extends javax.swing.JFrame {
                         .addComponent(labelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submit)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addContainerGap()
@@ -219,17 +228,25 @@ public class updateDokter extends javax.swing.JFrame {
                                         .addComponent(field_noPrak, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                                         .addComponent(field_namaDok))))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(gajiDok, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idPoli, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(field_spesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(choicePoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                                        .addComponent(field_gajiDok))
-                                    .addComponent(field_noHP, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 61, Short.MAX_VALUE)))
+                                    .addComponent(submit)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(gajiDok1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(field_alamat, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(gajiDok, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(idPoli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(choicePoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(field_spesialis, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                                .addComponent(field_gajiDok, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                                .addComponent(field_noHP, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))))))
+                        .addGap(0, 51, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -255,17 +272,19 @@ public class updateDokter extends javax.swing.JFrame {
                     .addComponent(field_spesialis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(field_gajiDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(choicePoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(gajiDok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idPoli)))
-                .addGap(24, 24, 24)
+                    .addComponent(field_gajiDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gajiDok))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(field_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gajiDok1))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(choicePoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idPoli))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(btnBack1)
                 .addContainerGap())
         );
@@ -304,9 +323,10 @@ public class updateDokter extends javax.swing.JFrame {
         String spesialis = field_spesialis.getText();
         String gajiDok = field_gajiDok.getText();
         String idPoli = choicePoliklinik.getSelectedItem();
+        String alamat = field_alamat.getText();
         String idDok = (dokter[0][0]).toString();
 
-        Query.updDokter(idDok, namaDok, noPrak, noHP, spesialis, gajiDok, idPoli);
+        Query.updDokter(idDok, namaDok, noPrak, noHP, spesialis, gajiDok, alamat, idPoli);
         dokterID page = new dokterID();
         page.run();
         this.setVisible(false);
@@ -373,6 +393,7 @@ public class updateDokter extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnaddTindakan;
     private java.awt.Choice choicePoliklinik;
+    private javax.swing.JTextField field_alamat;
     private javax.swing.JTextField field_gajiDok;
     private javax.swing.JTextField field_namaDok;
     private javax.swing.JTextField field_noHP;
@@ -380,6 +401,7 @@ public class updateDokter extends javax.swing.JFrame {
     private javax.swing.JTextField field_search;
     private javax.swing.JTextField field_spesialis;
     private javax.swing.JLabel gajiDok;
+    private javax.swing.JLabel gajiDok1;
     private javax.swing.JLabel idPoli;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

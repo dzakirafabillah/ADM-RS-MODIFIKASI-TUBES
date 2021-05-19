@@ -117,7 +117,6 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="submit" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -138,23 +137,34 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="gajiDok" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="idPoli" min="-2" pref="166" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="field_spesialis" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="choicePoliklinik" pref="137" max="32767" attributes="0"/>
-                                      <Component id="field_gajiDok" max="32767" attributes="0"/>
+                                  <Component id="submit" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="gajiDok1" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="field_alamat" pref="137" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="gajiDok" min="-2" pref="166" max="-2" attributes="0"/>
+                                              <Component id="idPoli" min="-2" pref="99" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="choicePoliklinik" max="32767" attributes="0"/>
+                                              <Component id="field_spesialis" alignment="0" pref="137" max="32767" attributes="0"/>
+                                              <Component id="field_gajiDok" pref="137" max="32767" attributes="0"/>
+                                              <Component id="field_noHP" alignment="0" pref="137" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Component id="field_noHP" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -188,20 +198,22 @@
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="field_gajiDok" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="choicePoliklinik" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="gajiDok" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="idPoli" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="field_gajiDok" min="-2" max="-2" attributes="0"/>
+                  <Component id="gajiDok" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="field_alamat" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="gajiDok1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="choicePoliklinik" min="-2" max="-2" attributes="0"/>
+                  <Component id="idPoli" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="submit" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -301,6 +313,16 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[15];&#xa;polList = Query.getPoliklinik();&#xa;for (int j = 0; j &lt; 10; j++) {&#xa;    if (polList[j] != null){&#xa;        choicePoliklinik.addItem(polList[j]);&#xa;    }&#xa;}"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gajiDok1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alamat"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="namaDok.setForeground(new Color(119,136,153));&#xa;namaDok.setBounds(114, 68, 213, 59);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_alamat">
     </Component>
   </SubComponents>
 </Form>

@@ -168,7 +168,7 @@
     </Component>
     <Component class="java.awt.Choice" name="choicePoliklinik">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[100];&#xa;polList = Query.getPoliklinik();&#xa;for (int j = 0; j &lt; 100 ; j++) {&#xa;if (polList[j] != null){&#xa;    choicePoliklinik.addItem(polList[j]);&#xa;}&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[100];&#xa;polList = Query.getPoliklinikName();&#xa;for (int j = 0; j &lt; 100 ; j++) {&#xa;if (polList[j] != null){&#xa;    choicePoliklinik.addItem(polList[j]);&#xa;}&#xa;}"/>
       </AuxValues>
     </Component>
     <Component class="java.awt.Choice" name="choiceBulan">

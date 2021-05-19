@@ -232,7 +232,7 @@ public class listDokterr extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Dokter", "Nama Dokter", "No Izin Praktek", "Phone Number", "Spesialisasi", "Gaji", "ID Poliklinik"
+                "ID Dokter", "Nama Dokter", "No Izin Praktek","Tgl Mulai", "Phone Number", "Spesialisasi", "ID Poliklinik", "Alamat","Gaji"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -353,7 +353,7 @@ public class listDokterr extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Dokter", "Nama Dokter", "No Izin Praktek", "Phone Number", "Spesialisasi", "Gaji", "ID Poliklinik"
+                "ID Dokter", "Nama Dokter", "No Izin Praktek","Tgl Mulai", "Phone Number", "Spesialisasi", "ID Poliklinik", "Alamat","Gaji"
             }
         ));
     }//GEN-LAST:event_btnAllActionPerformed
@@ -365,7 +365,7 @@ public class listDokterr extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Dokter", "Nama Dokter", "No Izin Praktek", "Phone Number", "Spesialisasi", "Gaji", "ID Poliklinik"
+                "ID Dokter", "Nama Dokter", "No Izin Praktek","Tgl Mulai", "Phone Number", "Spesialisasi", "ID Poliklinik", "Alamat","Gaji"
             }
         ));
     }//GEN-LAST:event_btnSearch1ActionPerformed

@@ -90,7 +90,7 @@ public class listPendaftaranForAdmin extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
+                "No Registrasi","Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -186,7 +186,7 @@ public class listPendaftaranForAdmin extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                 "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
+                 "No Registrasi","Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -197,7 +197,7 @@ public class listPendaftaranForAdmin extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                 "No Registrasi","No Antri", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
+                 "No Registrasi", "Symptom", "Diagnosa", "Tipe Rawat", "Tgl Registrasi", "Usia", "No Rekam Medis", "ID Poliklinik" ,"ID Dokter"
             }
         ));
     }//GEN-LAST:event_btnAllActionPerformed

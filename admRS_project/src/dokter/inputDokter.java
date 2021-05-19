@@ -72,6 +72,8 @@ public class inputDokter extends javax.swing.JFrame {
         Submit = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         choicePoliklinik = new java.awt.Choice();
+        jLabel8 = new javax.swing.JLabel();
+        field_address = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +113,8 @@ public class inputDokter extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Alamat");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,29 +122,34 @@ public class inputDokter extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack)
-                .addGap(115, 406, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Submit)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Submit)
+                        .addGap(87, 87, 87))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Gaji)
-                            .addComponent(Spesialisasi)
-                            .addComponent(Phone)
-                            .addComponent(No)
-                            .addComponent(Nama)
-                            .addComponent(choicePoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(87, 87, 87))
+                            .addComponent(btnBack)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Gaji)
+                                    .addComponent(Spesialisasi)
+                                    .addComponent(Phone)
+                                    .addComponent(No)
+                                    .addComponent(Nama)
+                                    .addComponent(choicePoliklinik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(field_address, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(100, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,11 +178,15 @@ public class inputDokter extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Gaji, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(field_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(choicePoliklinik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
+                        .addGap(19, 19, 19)
                         .addComponent(Submit)
                         .addContainerGap(94, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -193,6 +206,7 @@ public class inputDokter extends javax.swing.JFrame {
         String spes = Spesialisasi.getText();
         String gaji = Gaji.getText();
         String id = choicePoliklinik.getSelectedItem();
+        String alamat = field_address.getText();
         
         if(namaPol != ""){
             if(namaPol != "" && (nm.equals("") || no.equals("") || phone.equals("") 
@@ -201,7 +215,7 @@ public class inputDokter extends javax.swing.JFrame {
             }else{
                 Query.addPoliklinik(namaPol);
                 String idNewPol = Query.getIdPoliklinik(namaPol);
-                String hasil = Query.addDokter(nm,no,phone,spes,gaji,idNewPol);
+                String hasil = Query.addDokter(nm,no,phone,spes,gaji,alamat,idNewPol);
                 if (hasil != "Record Save Success::"){
                     this.clear();
                 }else{
@@ -209,7 +223,7 @@ public class inputDokter extends javax.swing.JFrame {
                 }
             }
         }else{
-            Query.addDokter(nm,no,phone,spes,gaji,id);
+            Query.addDokter(nm,no,phone,spes,gaji,alamat,id);
             this.clear();
         }
     }//GEN-LAST:event_SubmitActionPerformed
@@ -293,6 +307,7 @@ public class inputDokter extends javax.swing.JFrame {
     private javax.swing.JButton Submit;
     private javax.swing.JButton btnBack;
     private java.awt.Choice choicePoliklinik;
+    private javax.swing.JTextField field_address;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,5 +315,6 @@ public class inputDokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

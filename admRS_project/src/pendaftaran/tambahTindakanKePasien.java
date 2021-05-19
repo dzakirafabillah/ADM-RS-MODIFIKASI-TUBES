@@ -205,7 +205,7 @@ public class tambahTindakanKePasien extends javax.swing.JFrame {
         String noRegis = field_noRegis.getText();
 
         label_tarif.setText("Rp " + tarif);
-        Query.addTindakanToPasien(idTindakan, noRegis, jml, tarif);
+        Query.addTindakanToPasien(idTindakan, noRegis, jml);
         
         this.clear();
     }//GEN-LAST:event_submitActionPerformed

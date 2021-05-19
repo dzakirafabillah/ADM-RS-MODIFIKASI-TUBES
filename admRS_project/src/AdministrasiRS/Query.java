@@ -147,6 +147,29 @@ public class Query {
         return arrPoliklinik;
     }
     
+    public static String[] getPoliklinikName(){
+           
+      PreparedStatement pst = null;
+      String[] arrPoliklinik = new String[100];
+      String sql = "select * from POLIKLINIK";
+      ResultSet st;
+         
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            int i = 0; 
+            while(st.next()){
+                arrPoliklinik[i] = st.getString(2);
+                i++;
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrPoliklinik;
+    }
+    
+    
     public static String getIdPoliklinik(String namaPol){
            
       PreparedStatement pst = null;
@@ -170,41 +193,26 @@ public class Query {
     }
     
     
-    public static String textProcedure(String aNama, String aBulan, String aTahun){
-        String text;
-        Scanner input = new Scanner(System.in);
-        CallableStatement stmt = null;
-        String result = "";
-        try{
-			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call JML_RIWAYAT_PENDAFTARAN(?,?,?,?)}");
-			stmt.setString(1, aNama);
-			stmt.setString(2, aBulan);
-			stmt.setString(3, aTahun);
-	
+    
+    public static String getJmlPendaftaran(String aNama, String aBulan, String aTahun){
+           
+      PreparedStatement pst = null;
+      String hasil = "0";
+      String sql = "SELECT GET_JML_RIWAYAT_PENDAFTARAN('"+aNama+"', "+aBulan+", "+aTahun+")FROM DUAL";
+      ResultSet st;
          
-			//register the OUT parameter before calling the stored procedure
-			stmt.registerOutParameter(4, java.sql.Types.VARCHAR);
-			
-			stmt.executeUpdate();
-			result = stmt.getString(4);
-			//read the OUT parameter now
-//			System.out.println(result);
-		}catch(Exception e){
-//			e.printStackTrace();
-                        
-		}finally{
-			try {
-				stmt.close();
-//				//con.close();
-				input.close();
-			} catch (SQLException e) {
-//				e.printStackTrace();
-			}
-                        return result;
-                        
-		}
-        
+        try {
+            pst = con.prepareStatement(sql);
+            st=pst.executeQuery();
+            
+            while(st.next()){
+               hasil = "\n"+st.getString(1);
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return String.valueOf(hasil);
     }
     
     
@@ -234,14 +242,9 @@ public class Query {
     }
     
     public  static String addDokter(String Nama, String NoIzinPraktek, 
-            String PhoneNumber, String Spesialisasi, String Gaji, 
+            String PhoneNumber, String Spesialisasi, String Gaji, String Alamat, 
             String IdPoliklinik){
-         String Name = Nama;
-         String NoIzin = NoIzinPraktek;
-         String Phone = PhoneNumber;
-         String Spesial = Spesialisasi;
-         String gaji = Gaji;
-         String Id = IdPoliklinik;
+         
          
          CallableStatement stmt = null;
          Scanner input = new Scanner(System.in);
@@ -249,13 +252,14 @@ public class Query {
          
          try{
 			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call DOKTER_INSERT(?,?,?,?,?,?)}");
-			stmt.setString(1, Name);
-                        stmt.setString(2, NoIzin);
-                        stmt.setString(3, Phone);
-                        stmt.setString(4, Spesial);
-                        stmt.setString(5, gaji);
-                        stmt.setString(6, Id);
+			stmt = con.prepareCall("{call DOKTER_INSERT(?,?,?,?,?,?,?)}");
+			stmt.setString(1, Nama);
+                        stmt.setString(2, NoIzinPraktek);
+                        stmt.setString(3, PhoneNumber);
+                        stmt.setString(4, Spesialisasi);
+                        stmt.setString(5, Gaji);
+                        stmt.setString(6, Alamat);
+                        stmt.setString(7, IdPoliklinik);
                         
                         stmt.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Data Dokter berhasil ditambahkan !");
@@ -318,7 +322,7 @@ public class Query {
       String sql = "select * from DOKTER WHERE id_dokter = '" + idDok + "'";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[0][7];
+      Object[][] result =  new Object[0][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -326,12 +330,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][7];
+            result =  new Object[size][9];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<8 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -348,7 +352,7 @@ public class Query {
     }
     
      public static void updDokter(String idDok, String namaDok, String noPrak, 
-            String noHP, String spesialis, String tGajiDok, String idPoli){
+            String noHP, String spesialis, String tGajiDok, String alamat, String idPoli){
          int gajiDok = Integer.parseInt(tGajiDok);
          
          CallableStatement stmt = null;
@@ -356,13 +360,14 @@ public class Query {
          
          try{
 			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call DOKTER_UPDATE(?,?,?,?,?," + gajiDok+ ",?)}");
+			stmt = con.prepareCall("{call DOKTER_UPDATE(?,?,?,?,?," + gajiDok+ ",?,?)}");
 			stmt.setString(1, idDok);
 			stmt.setString(2, namaDok);
                         stmt.setString(3, noPrak);
                         stmt.setString(4, noHP);
                         stmt.setString(5, spesialis);
-                        stmt.setString(6, idPoli);
+                        stmt.setString(6, alamat);
+                        stmt.setString(7, idPoli);
 			
 			stmt.executeUpdate();
 			
@@ -387,11 +392,10 @@ public class Query {
     public static Object[][] getSearchDokter(String noRM){
       
       PreparedStatement pst = null;
-      
       String sql = "select * from DOKTER WHERE id_dokter = '" + noRM + "'";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[1][7];
+      Object[][] result =  new Object[1][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -399,7 +403,7 @@ public class Query {
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<8 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -423,7 +427,7 @@ public class Query {
       String sql = "select * from DOKTER";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][7];
+      Object[][] result =  new Object[30][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -431,12 +435,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][7];
+            result =  new Object[size][9];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<8 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -459,7 +463,7 @@ public class Query {
       String sql = "select * from DOKTER WHERE id_dokter = '" + noRM + "'";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][7];
+      Object[][] result =  new Object[30][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -467,12 +471,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][7];
+            result =  new Object[size][9];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<8 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -676,7 +680,7 @@ public class Query {
       String sql = "select * from RIWAYAT_PENDAFTARAN";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][10];
+      Object[][] result =  new Object[30][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -684,12 +688,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][10];
+            result =  new Object[size][9];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<11 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -713,7 +717,7 @@ public class Query {
                     + noRM + "' OR diagnosa = '" + noRM + "'";
       ResultSet st;
       int size = 0;
-      Object[][] result =  new Object[30][10];
+      Object[][] result =  new Object[30][9];
         
         try {
             pst = con.prepareStatement(sql);
@@ -721,12 +725,12 @@ public class Query {
             while(st.next()){
                 size++;
             }
-            result =  new Object[size][10];
+            result =  new Object[size][9];
             
             st=pst.executeQuery();
             int i=0;
             while(st.next()){
-                for (int k =1; k<11 ;k++){
+                for (int k =1; k<10 ;k++){
                     result[i][k-1] = st.getString(k);
                 }
                 i++;
@@ -1136,11 +1140,10 @@ public class Query {
         return arrTindakan[0];
     }
      
-     public  static String addTindakanToPasien(String idT, String noR, String jml, String aTarif){
+     public  static String addTindakanToPasien(String idT, String noR, String jml){
          String idTindakan = idT;
          String noRegis = noR;
          String jumlah = jml;
-         String tarif = aTarif;
          
          CallableStatement stmt = null;
          Scanner input = new Scanner(System.in);
@@ -1148,11 +1151,9 @@ public class Query {
          
          try{
 			con = DBConnection.getConnection();
-			stmt = con.prepareCall("{call TINDAKAN_HISTORY_INSERT(?,?,?,?)}");
-                        stmt.setString(2, noR);
-                        stmt.setString(3, idT);
-                        stmt.setString(4, jml);
-                        stmt.setString(5, getTarifTindakan(idT));
+			stmt = con.prepareCall("{call TINDAKAN_HISTORY_INSERT(?,?,"+jml+")}");
+                        stmt.setString(1, noR);
+                        stmt.setString(2, idT);
                         
                         stmt.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Data Tindakan berhasil ditambahkan !");
