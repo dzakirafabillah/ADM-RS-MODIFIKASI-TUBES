@@ -262,17 +262,6 @@ CREATE TABLE KANDUNGAN_OBAT
         REFERENCES ingredient ( id_bahan)
     );
 
-
-------------------------------------- INDEXING -------------------------------------
-
-CREATE INDEX Idx_Pasien_No_Rekam_Medis ON Riwayat_Pendaftaran(PASIEN_NO_REKAM_MEDIS);
-CREATE INDEX Idx_RP_Diagnosa ON Riwayat_Pendaftaran(DIAGNOSA);
-CREATE INDEX Idx_RP_no_registrasi ON tindakan_history(no_registrasi);
-CREATE INDEX Idx_nama_poliklinik ON Poliklinik(nama_poliklinik);
-CREATE INDEX Idx_pemb_no_regis ON Pembayaran(rp_no_registrasi);
-CREATE INDEX Idx_reserp_no_regis ON Resep(no_registrasi);
-CREATE INDEX Idx_jenis_obat ON OBAT(id_jenis_obat);
-
 ------------------------------------- VIEW -------------------------------------
 
 --View Pasien Rawat Inap
