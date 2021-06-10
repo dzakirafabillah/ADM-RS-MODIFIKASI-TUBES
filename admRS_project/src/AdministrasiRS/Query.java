@@ -2078,7 +2078,11 @@ public class Query {
                         stmt.setString(6, IdDok);
                         
                         stmt.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Pendaftaran berhasil !");
+                        String riwayatPendaftaran = getNomorRegistrasi(norek, IdDok);
+                        
+			JOptionPane.showMessageDialog(null, "Nomor Registrasi anda : "+
+                                riwayatPendaftaran + "\nNomor Antrian : " +noAntri);
+
 		}catch(Exception e){
 			e.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Pendaftaran gagal dilakukan!");
@@ -2092,8 +2096,33 @@ public class Query {
 			}
 		}
          
-         return hasil;
+        return hasil;
      }
+    
+        public static String getNomorRegistrasi(String norek, String idDok){
+
+          PreparedStatement pst = null;
+          String[] arrPasien = new String[10];
+          String sql = "select * from RIWAYAT_PENDAFTARAN WHERE PASIEN_NO_REKAM_MEDIS = '" +
+                  norek + "' AND dokter_id_dokter = '"+idDok +
+                  "' AND tgl_registrasi > SYSDATE - 1";
+          System.out.println(sql);
+          ResultSet st;
+
+            try {
+                pst = con.prepareStatement(sql);
+                st=pst.executeQuery();
+                int i = 0; 
+                while(st.next()){
+                    arrPasien[i] = st.getString(1);
+                    i++;
+                }
+                pst.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return arrPasien[0];
+        }
 }
 
 

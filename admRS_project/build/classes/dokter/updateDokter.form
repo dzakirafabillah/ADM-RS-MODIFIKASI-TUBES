@@ -311,7 +311,7 @@
     </Component>
     <Component class="java.awt.Choice" name="choicePoliklinik">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[15];&#xa;polList = Query.getPoliklinik();&#xa;for (int j = 0; j &lt; 10; j++) {&#xa;    if (polList[j] != null){&#xa;        choicePoliklinik.addItem(polList[j]);&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] polList = new String[15];&#xa;polList = Query.getPoliklinik();&#xa;for (int j = 0; j &lt; 20; j++) {&#xa;    if (polList[j] != null){&#xa;        choicePoliklinik.addItem(polList[j]);&#xa;    }&#xa;}"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="gajiDok1">

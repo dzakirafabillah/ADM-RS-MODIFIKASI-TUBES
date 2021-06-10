@@ -191,7 +191,7 @@ public class updateDokter extends javax.swing.JFrame {
 
         String[] polList = new String[15];
         polList = Query.getPoliklinik();
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 20; j++) {
             if (polList[j] != null){
                 choicePoliklinik.addItem(polList[j]);
             }

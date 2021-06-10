@@ -20,7 +20,7 @@ public class Antrian {
     public Antrian(String idDok,String tgl){
         idDokter = idDok;
         date = tgl;
-        no_antrian = Query.getLastQueueNumber(idDokter, date); /*Select dari database*/
+        no_antrian = Query.getLastQueueNumber(idDokter, date) + 1; /*Select dari database*/
     }
     //reader
     public int get_no_antri(){
