@@ -186,9 +186,7 @@ IS
 BEGIN
 
 SELECT count(*) INTO queue_number
-    FROM RIWAYAT_PENDAFTARAN
-    WHERE dokter_id_dokter = i_id_dokter
-          AND
-          tgl_registrasi = i_tgl_registrasi;
+    FROM ANTRIAN
+    WHERE dokter_id_dokter = i_id_dokter;
     RETURN queue_number;
 END;
