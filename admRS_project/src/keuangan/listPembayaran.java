@@ -58,7 +58,7 @@ public class listPembayaran extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             tempp,
             new String [] {
-                "ID Pembayaran", "Total Pembayaran", "No Registrasi", "Status Pembayaran"
+                "ID Pembayaran",  "No Registrasi", "Status Pembayaran", "Total Pembayaran"
             }
         ));
         jScrollPane2.setViewportView(jTable2);

@@ -2065,7 +2065,7 @@ public class Query {
          
          CallableStatement stmt = null;
          Scanner input = new Scanner(System.in);
-         String hasil = "Record Save Success::";
+         String hasil = "Recoadrd Save Success::";
          
          try{
 			con = DBConnection.getConnection();
@@ -2085,14 +2085,14 @@ public class Query {
 
 		}catch(Exception e){
 			e.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Pendaftaran gagal dilakukan!");
+                        JOptionPane.showMessageDialog(null, "Pendaftaran ke dokter tersebut Mencapai Batas Maksimum, Silahkan mendaftar lagi besok");
 		}finally{
 			try {
 				stmt.close();
 	//			con.close();
 				input.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
          
